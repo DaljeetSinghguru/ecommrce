@@ -3,7 +3,6 @@ F:\xxxx\ecommrce\ecommrce\bin\ecommrce.dll
 F:\xxxx\ecommrce\ecommrce\bin\ecommrce.pdb
 F:\xxxx\ecommrce\ecommrce\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 F:\xxxx\ecommrce\ecommrce\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-F:\xxxx\ecommrce\ecommrce\obj\Debug\ecommrce.csprojResolveAssemblyReference.cache
 F:\xxxx\ecommrce\ecommrce\obj\Debug\ecommrce.csproj.CoreCompileInputs.cache
 F:\xxxx\ecommrce\ecommrce\obj\Debug\ecommrce.dll
 F:\xxxx\ecommrce\ecommrce\obj\Debug\ecommrce.pdb
