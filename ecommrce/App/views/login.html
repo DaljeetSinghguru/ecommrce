@@ -8,11 +8,13 @@
 
         <div class="top">
 
-            <select class="form-control" name="right" ng-model="Country" ng-change="onCountryChange(Country)" ng-init="Country = options[5]" ng-options="l as l.Country for l in options"><option></option></select>
+            <!--<select class="form-control" name="right" ng-model="Country" ng-change="onCountryChange(Country)" ng-init="Country = options[5]" ng-options="l as l.Country for l in options"><option></option></select>-->
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-right">
-                        <a href="" ng-click="DisplayLoginPage()" ng-show="UserIsLogIn==false">Login</a><a href="" ng-show="UserIsLogIn==true">Welcome {{UserName}}</a><a href="" ng-click="LogOutPage()" ng-show="UserIsLogIn==true">(Logout)</a> | <a href="#">Create An Account</a> | <a href="" ng-click="LoginintoSlim()">Login into SLIM</a>
+                        <a href="" ng-click="DisplayLoginPage()" ng-show="UserIsLogIn==false">Login</a>
+                        <a href="" ng-show="UserIsLogIn==true">Welcome {{UserName}}</a>
+                        <a href="" ng-click="LogOutPage()" ng-show="UserIsLogIn==true">(Logout)</a> | <a href="#">Create An Account</a> 
 
                     </div>
                 </div>
@@ -25,7 +27,8 @@
                     <nav class="navbar  navbar-expand-lg navbar-light">
                         <a class="navbar-brand" href="#">
                             <div class="logo">
-                                <img src="../images/touchstone-educationals-logo.jpg" alt="touchstone educationals logo">
+                            
+                                <img style="width:100px;height:100px " src="../../ItemImage/uk_tool_centre_logo.jpg" alt="uk_tool logo">
                             </div>
                         </a>
                         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -93,19 +96,21 @@
             <div class="container section">
                 <div class="row">
                     <div class="col-lg-3 filter">
-                        <h5>Course</h5>
+                        <h5>Main Whole Sale Items</h5>
                         <ul>
-                            <li><a href="" ng-click="applyFilterByCourse('IELTS')">IELTS </a> </li>
-                            <li><a href="" ng-click="applyFilterByCourse('PTE')">PTE</a></li>
-                            <li><a href="" ng-click="applyFilterByCourse('SPOKEN ENGLISH')">SPOKEN ENGLISH</a></li>
-                            <li><a href="" ng-click="applyFilterByCourse('TOEFL')">TOEFL </a></li>
-                            <li><a href="" ng-click="applyFilterByCourse('LIFE SKILLS')">LIFE SKILLS </a></li>
+                            <li><a href="" ng-click="applyFilterByCourse('IELTS')">Power Tool Cordered </a> </li>
+                            <li><a href="" ng-click="applyFilterByCourse('PTE')">Power Tool Cordless</a></li>
+                            <li><a href="" ng-click="applyFilterByCourse('SPOKEN ENGLISH')">Power Tool Accessories</a></li>
+                            <li><a href="" ng-click="applyFilterByCourse('TOEFL')">Hand Tool</a></li>
+                            <li><a href="" ng-click="applyFilterByCourse('LIFE SKILLS')">Intelligent Tools</a></li>
+                            <li><a href="" ng-click="applyFilterByCourse('LIFE SKILLS')">Tools Storage </a></li>
+
                         </ul>
-                        <h5>Product Type</h5>
+                        <!--<h5>Product Type</h5>
                         <ul>
                             <li><a href="" ng-click="applyFilterItemType('Digital')">Digital</a></li>
                             <li><a href="" ng-click="applyFilterItemType('Physical')">Physical</a></li>
-                        </ul>
+                        </ul>-->
                     </div>
                     <div class="col-lg-9 product">
                         <div class="row">
@@ -124,17 +129,17 @@
                 <div class="container ">
                     <div class="row">
                         <div class="col-lg-4">
-                            <img src="../images/icon.jpg" alt="icon" class="float-left">
+                            <img src="../../ItemImage/icon.jpg" alt="icon" class="float-left">
                             <strong>Free shipping item</strong><br>
                             For all orders over $500
                         </div>
                         <div class="col-lg-4">
-                            <img src="../images/icon1.jpg" alt="icon" class="float-left">
+                            <img src="../../ItemImage/icon1.jpg" alt="icon" class="float-left">
                             <strong>Money back guarante</strong><br>
                             100% money back guarante
                         </div>
                         <div class="col-lg-4">
-                            <img src="../images/icon2.jpg" alt="icon" class="float-left">
+                            <img src="../../ItemImage/icon2.jpg" alt="icon" class="float-left">
                             <strong>Cash on delivery</strong><br>
                             Lorem Ipsum simple
                         </div>
@@ -146,7 +151,7 @@
                     <div class="col-lg-6">
                         <div class="box">
                             <div class="book1">
-                                <img src="../images/book1.png" alt="book1">
+                                <img src="../../ItemImage/book1.png" alt="book1">
                             </div>
                             <h2>IELTS SPEAKING TIPS</h2>
                             <p>
@@ -158,7 +163,7 @@
                     <div class="col-lg-6">
                         <div class="box" style="background: #313131">
                             <div class="book1">
-                                <img src="../images/book2.png" alt="book1">
+                                <img src="../../ItemImage/book2.png" alt="book1">
                             </div>
                             <h2>IELTS Cambridge English</h2>
                             <p>
@@ -172,7 +177,7 @@
             <div class="container text-center">
                 <div class="row">
                     <div class="col-md-12">
-                        <img src="../images/shop-now.jpg" class="img-fluid" alt="shop now banner">
+                        <img src="../../ItemImage/shop-now.jpg" class="img-fluid" alt="shop now banner">
                     </div>
                 </div>
             </div>
@@ -302,16 +307,16 @@
                             </p>
                             <ul>
                                 <li>
-                                    <img src="../images/facebook.jpg" alt="facebook">
+                                    <img src="../../ItemImage/facebook.jpg" alt="facebook">
                                 </li>
                                 <li>
-                                    <img src="../images/twitter.jpg" alt="twitter">
+                                    <img src="../../ItemImage/twitter.jpg" alt="twitter">
                                 </li>
                                 <li>
-                                    <img src="../images/googleplus.jpg" alt="googleplus">
+                                    <img src="../../ItemImage/googleplus.jpg" alt="googleplus">
                                 </li>
                                 <li>
-                                    <img src="../images/whatsapp.jpg" alt="whatsapp">
+                                    <img src="../../ItemImage/whatsapp.jpg" alt="whatsapp">
                                 </li>
                             </ul>
                         </div>
@@ -342,13 +347,13 @@
                 <h5 class="text-left">Related Books</h5>
                 <div class="row">
                     <div class="col-lg-2">
-                        <img src="../images/img2.jpg" alt="book1">
+                        <img src="../../ItemImage/img2.jpg" alt="book1">
                         <h5>ielts tips</h5>
                         <h4>$34.00 <del>$36.00</del></h4>
                         <h6><a href="#">Add to cart</a></h6>
                     </div>
                     <div class="col-lg-2">
-                        <img src="../images/img3.jpg" alt="book1">
+                        <img src="../../ItemImage/img3.jpg" alt="book1">
                         <h5>ielts tips</h5>
                         <h4>$34.00 <del>$36.00</del></h4>
                         <h6><a href="#">Add to cart</a></h6>
@@ -365,7 +370,7 @@
                     <div class="check_box">
                         <div class="col-md-9 cart-items">
                             <h1>Shopping Bag</h1>
-                            <%--
+                            <!--<%--
                             <script>
 $(document).ready(function (c) {
                                     $('.close1').on('click', function (c) {
@@ -374,7 +379,7 @@ $(document).ready(function (c) {
                                         });
                                     });
                                 });
-                            </script>--%>
+                            </script>--%>-->
                             <div class="cart-header" ng-repeat="item in items | orderBy:'name'">
                                 <div class="close1" ng-click="deleteRowFromBasket(item)"></div>
                                 <div class="cart-sec">
@@ -382,7 +387,7 @@ $(document).ready(function (c) {
                                         <img src="{{item.ItemImage}}" class="img-responsive" alt="" />
                                     </div>
                                     <div class="cart-item-info">
-                                        <%-- <h3><a href="#">Mountain Hopper(XS R034)</a><span>Model No: 3578</span></h3>--%>
+                                       <!-- <%-- <h3><a href="#">Mountain Hopper(XS R034)</a><span>Model No: 3578</span></h3>--%>-->
                                         <h3>{{item.name}}</h3>
                                         <ul class="qty">
                                             <li>
@@ -401,7 +406,7 @@ $(document).ready(function (c) {
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
-                            <%--
+                            <!--<%--
                             <script>
 $(document).ready(function (c) {
                                     $('.close2').on('click', function (c) {
@@ -410,7 +415,7 @@ $(document).ready(function (c) {
                                         });
                                     });
                                 });
-                            </script>--%>
+                            </script>--%>-->
                         </div>
                         <div class="col-md-3 cart-total">
                             <a class="continue" href="" ng-click="ContinueToBasket()">Continue to basket</a>
@@ -436,12 +441,12 @@ $(document).ready(function (c) {
                                 <div id="dropin-container"></div>
                             </div>
                             <a id="submit-button" class="order" href="" ng-click="Order()">Place Order</a>
-                            <%--  <div class="total-item">
+                            <!--<%--  <div class="total-item">
                                 <h3>OPTIONS</h3>
                                 <h4>COUPONS</h4>
                                 <a class="cpns" href="#">Apply Coupons</a>
                                 <p><a href="#">Log In</a> to use accounts - linked coupons</p>
-                            </div>--%>
+                            </div>--%>-->
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -464,7 +469,7 @@ $(document).ready(function (c) {
                                 <li>&#9989; Save multiple shipping addresses</li>
                                 <li>&#9989; View and track orders and more</li>
                             </ul>
-                            <%--   <input type="submit" ng-click="DisplayRegistrationPage() value="Create Account" class="form-control">--%>
+                         <!--   <%--   <input type="submit" ng-click="DisplayRegistrationPage() value="Create Account" class="form-control">--%>-->
                             <a href="" ng-click="DisplayRegistrationPage()" class="create">Create an account</a>
                         </div>
                         <div class="col-lg-1"></div>

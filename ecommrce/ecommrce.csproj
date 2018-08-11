@@ -116,6 +116,7 @@
     <Content Include="ItemImage\Ilets Book.png" />
     <Content Include="ItemImage\note.png" />
     <Content Include="ItemImage\Onlinetest.png" />
+    <Content Include="ItemImage\uk_tool_centre_logo.jpg" />
     <Content Include="Scripts\1.10.3-jquery-ui.js" />
     <Content Include="Scripts\ajax-libs-jquery3.2.1-jquery.min.js" />
     <Content Include="Scripts\ajax.googleapis.com-ajax-libs-jquery-1.4.2-jquery.min.js" />
