@@ -67,6 +67,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="Scripts\angular-aria.min.js.map" />
+    <Content Include="Scripts\angular-cookies.min.js.map" />
+    <Content Include="Scripts\angular-file-upload.js.map" />
+    <Content Include="Scripts\angular-file-upload.min.js.map" />
+    <Content Include="Scripts\angular-loader.min.js.map" />
+    <Content Include="Scripts\angular-messages.min.js.map" />
+    <Content Include="Scripts\angular-resource.min.js.map" />
+    <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="Scripts\angular-sanitize.min.js.map" />
+    <Content Include="Scripts\angular-strap.min.js.map" />
+    <Content Include="Scripts\angular-touch.min.js.map" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\errors.json" />
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Scripts\version.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -75,11 +91,118 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\app_v10.js" />
+    <Content Include="App\controllers\DashboardMainController.js" />
+    <Content Include="App\controllers\loginController.js" />
+    <Content Include="App\controllers\mainController2.js" />
+    <Content Include="App\controllers\mainController_v11.js" />
+    <Content Include="App\directives\httpInterceptor.js" />
+    <Content Include="App\loginApp.js" />
+    <Content Include="App\services\UserCompanyService.js" />
+    <Content Include="App\services\UserService_v1.js" />
+    <Content Include="App\services\ViewVariablesService_v1.js" />
+    <Content Include="App\views\Dashboard.html" />
+    <Content Include="App\views\login.html" />
+    <Content Include="Content\css\csslibrary.css" />
+    <Content Include="Content\css\index.css" />
+    <Content Include="Content\css\kendo.custom.css" />
+    <Content Include="index.html" />
+    <Content Include="Scripts\angular-animate.js" />
+    <Content Include="Scripts\angular-animate.min.js" />
+    <Content Include="Scripts\angular-aria.js" />
+    <Content Include="Scripts\angular-aria.min.js" />
+    <Content Include="Scripts\angular-base64-upload.js" />
+    <Content Include="Scripts\angular-cookies.js" />
+    <Content Include="Scripts\angular-cookies.min.js" />
+    <Content Include="Scripts\angular-csp.css" />
+    <Content Include="Scripts\angular-dragdrop.min.js" />
+    <Content Include="Scripts\angular-fancybox-plus.js" />
+    <Content Include="Scripts\angular-file-upload.js" />
+    <Content Include="Scripts\angular-file-upload.min.js" />
+    <Content Include="Scripts\angular-google-maps.js" />
+    <Content Include="Scripts\angular-loader.js" />
+    <Content Include="Scripts\angular-loader.min.js" />
+    <Content Include="Scripts\angular-local-storage.js" />
+    <Content Include="Scripts\angular-lodash.js" />
+    <Content Include="Scripts\angular-messages.js" />
+    <Content Include="Scripts\angular-messages.min.js" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-resource.js" />
+    <Content Include="Scripts\angular-resource.min.js" />
+    <Content Include="Scripts\angular-ripple.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
+    <Content Include="Scripts\angular-sanitize.js" />
+    <Content Include="Scripts\angular-sanitize.min.js" />
+    <Content Include="Scripts\angular-scenario.js" />
+    <Content Include="Scripts\angular-strap.js" />
+    <Content Include="Scripts\angular-strap.min.js" />
+    <Content Include="Scripts\angular-strap.tpl.js" />
+    <Content Include="Scripts\angular-strap.tpl.min.js" />
+    <Content Include="Scripts\angular-touch.js" />
+    <Content Include="Scripts\angular-touch.min.js" />
+    <Content Include="Scripts\angular-ui-router.js" />
+    <Content Include="Scripts\angular-ui-router.min.js" />
+    <Content Include="Scripts\angular-ui\angular-drag-and-drop-lists.js" />
+    <Content Include="Scripts\angular-ui\angular-drag-and-drop-lists.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\autocomplete.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\checklist-model.js" />
+    <Content Include="Scripts\daterangepicker.js" />
+    <Content Include="Scripts\hotkeys.js" />
+    <Content Include="Scripts\hotkeys.min.js" />
+    <Content Include="Scripts\igniteui-angular.js" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.animsition.min.js" />
+    <Content Include="Scripts\jquery.csv.min.js" />
+    <Content Include="Scripts\jquery.fancybox-plus.js" />
+    <Content Include="Scripts\jquery.formatCurrency-1.4.0.js" />
+    <Content Include="Scripts\jquery.scrollTo.min.js" />
+    <Content Include="Scripts\jquery.slimscroll.min.js" />
+    <Content Include="Scripts\jquery.sparkline.min.js" />
+    <Content Include="Scripts\jRespond.min.js" />
+    <Content Include="Scripts\kendo.common.min.css" />
+    <Content Include="Scripts\kendo.custom.js" />
+    <Content Include="Scripts\library.js" />
+    <Content Include="Scripts\library.min.js" />
+    <Content Include="Scripts\library.minified.js" />
+    <Content Include="Scripts\loading-bar.js" />
+    <Content Include="Scripts\main-template.js" />
+    <Content Include="Scripts\mainlibraries.js" />
+    <Content Include="Scripts\mainlibraries.min.js" />
+    <Content Include="Scripts\mb-scrollbar.min.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\mousetrap.min.js" />
+    <Content Include="Scripts\ng-droplet.js" />
+    <Content Include="Scripts\ng-droplet.min.js" />
+    <Content Include="Scripts\ng-scrollbar.min.js" />
+    <Content Include="Scripts\ngAutocomplete.js" />
+    <Content Include="Scripts\ngDraggable.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\ocLazyLoad.js" />
+    <Content Include="Scripts\pako_deflate.min.js" />
+    <Content Include="Scripts\ui-bootstrap-tpls-0.12.1.min.js" />
+    <Content Include="Scripts\ui-router-tabs.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
