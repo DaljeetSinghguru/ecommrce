@@ -6,4 +6,3 @@ F:\xxxx\ecommrce\ecommrce\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform
 F:\xxxx\ecommrce\ecommrce\obj\Debug\ecommrce.csproj.CoreCompileInputs.cache
 F:\xxxx\ecommrce\ecommrce\obj\Debug\ecommrce.dll
 F:\xxxx\ecommrce\ecommrce\obj\Debug\ecommrce.pdb
-F:\xxxx\ecommrce\ecommrce\obj\Debug\ecommrce.csprojResolveAssemblyReference.cache

@@ -1,13 +1,6 @@
-﻿
-
-<div id="wrap" class="animsition" style="animation-duration: 1.5s; opacity: 1;">
-
+﻿<div id="wrap" class="animsition" style="animation-duration: 1.5s; opacity: 1;">
     <div class="page page-core page-login" ng-controller="ShopmainController">
-
-
-
         <div class="top">
-
             <!--<select class="form-control" name="right" ng-model="Country" ng-change="onCountryChange(Country)" ng-init="Country = options[5]" ng-options="l as l.Country for l in options"><option></option></select>-->
             <div class="container">
                 <div class="row">
@@ -15,19 +8,16 @@
                         <a href="" ng-click="DisplayLoginPage()" ng-show="UserIsLogIn==false">Login</a>
                         <a href="" ng-show="UserIsLogIn==true">Welcome {{UserName}}</a>
                         <a href="" ng-click="LogOutPage()" ng-show="UserIsLogIn==true">(Logout)</a> | <a href="#">Create An Account</a> 
-
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <nav class="navbar  navbar-expand-lg navbar-light">
                         <a class="navbar-brand" href="#">
                             <div class="logo">
-                            
                                 <img style="width:100px;height:100px " src="../../ItemImage/uk_tool_centre_logo.jpg" alt="uk_tool logo">
                             </div>
                         </a>
@@ -64,23 +54,27 @@
 
 
                         <!-- start search-->
-                        <!--<%--  <div class="search-box">
+                        <div class="search-box">
                             <div id="sb-search" class="sb-search">
                                 <form>
                                     <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
                                     <input class="sb-search-submit" type="submit" value="">
                                     <span class="sb-icon-search"></span>
+                                    <span><i class="phone">9988225604</i></span>|
+                                    <span><i class="">Mon - Fri 7:30 Am - 6:00 Pm</i></span>
                                 </form>
                             </div>
-                        </div>--%>-->
+                        </div>
+
+                       
                         <!----search-scripts---->
-                        <!--<%--
-                        <script src="Scripts/classie1.js"></script>--%>
-                        <%--
+
+                        <script src="Scripts/classie1.js"></script>
+
                         <script src="Scripts/uisearch.js"></script>
                         <script>
                             new UISearch(document.getElementById('sb-search'));
-                        </script>--%>-->
+                        </script>
                         <!----//search-scripts---->
                         <div class="clearfix"></div>
                     </div>
@@ -174,13 +168,13 @@
                     </div>
                 </div>
             </div>
-            <div class="container text-center">
+            <!--<div class="container text-center">
                 <div class="row">
                     <div class="col-md-12">
                         <img src="../../ItemImage/shop-now.jpg" class="img-fluid" alt="shop now banner">
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="container section">
                 <div class="row">
                     <div class="col-lg-3">

@@ -1,10 +1,16 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 .top{border-bottom:1px solid #dddddd;padding:10px 0;}
 .top a{color:#666; padding:0 10px;}
 .top a:hover{text-decoration:none;}
 .logo{padding:5px 0;}
-.banner{background:url(../images/banner.jpg) no-repeat center; background-size:cover; min-height:456px; height:100%;}
+.banner {
+    /*background: url(../images/banner.jpg) no-repeat center;*/
+    background: url('../../ItemImage/banner.jpg') no-repeat center;
+    background-size: cover;
+    min-height: 456px;
+    height: 100%;
+}
 .navbar{text-transform:uppercase; padding:0 !important;}
 a{ -o-transition:.3s;
   -ms-transition:.3s;
