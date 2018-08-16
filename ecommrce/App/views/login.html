@@ -6,7 +6,7 @@
                     <div class="col-lg-12 text-right">
                         <a href="" ng-click="DisplayLoginPage()" ng-show="UserIsLogIn==false">Login</a>
                         <a href="" ng-show="UserIsLogIn==true">Welcome {{UserName}}</a>
-                        <a href="" ng-click="LogOutPage()" ng-show="UserIsLogIn==true">(Logout)</a> | <a href="#">Create An Account</a> 
+                        <a href="" ng-click="LogOutPage()" ng-show="UserIsLogIn==true">(Logout)</a> | <a href="#">Create An Account</a>
                     </div>
                 </div>
             </div>
@@ -21,12 +21,10 @@
                             </div>
                         </a>
                         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-
                         <div class="container">
                             <div class="header_top">
                                 <div class="header_top_left">
                                     <div class="box_11" ng-click="ShowCart()" ng-show="getTotalCount() > 0">
-
                                         <i class="icon-shopping-cart" />
                                         <b>{{getTotalCount()}}</b> items, <b>{{getTotalPrice() | currency}}</b>
                                         <span ng-show="getTotalCount() > 0">
@@ -34,13 +32,11 @@
                                             this item is in the cart
                                         </span>
                                     </div>
-
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="header_top_right">
                                     <div class="lang_list">
                                     </div>
-
 
                                     <!-- start search-->
                                     <div class="search-box">
@@ -55,11 +51,8 @@
                                         </div>
                                     </div>
 
-
                                     <!----search-scripts---->
-
                                     <script src="Scripts/classie1.js"></script>
-
                                     <script src="Scripts/uisearch.js"></script>
                                     <script>
                                         new UISearch(document.getElementById('sb-search'));
@@ -69,7 +62,6 @@
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
-
                         </div>
                         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                             <ul class="navbar-nav">
@@ -81,24 +73,35 @@
                     </nav>
                 </div>
             </div>
-        
+
+        </div>
+
+
+        <div class="dropdown" ng-repeat="data in AllCategory">
+            <button class="dropbtn">{{data.Description}}</button>
+            <div class="dropdown-content">
+                <a href="#" ng-repeat="data1 in data.ChildFields">{{data1.Description}}</a>
+                <!--<a href="#">Link 2</a>
+                <a href="#">Link 3</a>-->
+            </div>
         </div>
 
         <!-- header end here -->
         <div class="HomePage" ng-show="HomePage==true">
-            <div class="banner"></div>
+
+
+            <!--<div class="banner"></div>-->
             <div class="container section">
                 <div class="row">
                     <div class="col-lg-3 filter">
-                        <h5>Main Whole Sale Items</h5>
+                        <!--<h5>Main Whole Sale Items</h5>-->
                         <ul>
-                            <li><a href="" ng-click="applyFilterByCourse('IELTS')">Power Tool Cordered </a> </li>
-                            <li><a href="" ng-click="applyFilterByCourse('PTE')">Power Tool Cordless</a></li>
+                            <!--<li ng-repeat="data in AllCategory"><a href="" ng-click="applyFilterByCourse('IELTS')">{{data.CategoryName}} </a> </li>-->
+                            <!--<li><a href="" ng-click="applyFilterByCourse('PTE')">Power Tool Cordless</a></li>
                             <li><a href="" ng-click="applyFilterByCourse('SPOKEN ENGLISH')">Power Tool Accessories</a></li>
                             <li><a href="" ng-click="applyFilterByCourse('TOEFL')">Hand Tool</a></li>
                             <li><a href="" ng-click="applyFilterByCourse('LIFE SKILLS')">Intelligent Tools</a></li>
-                            <li><a href="" ng-click="applyFilterByCourse('LIFE SKILLS')">Tools Storage </a></li>
-
+                            <li><a href="" ng-click="applyFilterByCourse('LIFE SKILLS')">Tools Storage </a></li>-->
                         </ul>
                         <!--<h5>Product Type</h5>
                         <ul>
@@ -109,12 +112,12 @@
                     <div class="col-lg-9 product">
                         <div class="row">
                             <div class="col-lg-3" ng-repeat="data in top8response">
-                                <img src="{{data.ItemImage}}" ng-click="function(data)" alt="{{data.ItemImage}}">
-                                <h5>{{data.ItemName}}</h5>
+                                <!--<img src="{{data.ItemImage}}" ng-click="function(data)" alt="{{data.ItemImage}}">-->
+                                <img src="../../ItemImage/ItemImages/111.jpg" />
+                                <h5>{{data.Name}}</h5>
                                 <h4>{{data.Price}} <del>{{data.Price}}</del></h4>
-                                <h6><a href="" ng-click="addItemToCart(data.ItemDescription, data.ItemName,data.ItemImage ,data.Price, 1,data.IsStockPresent,data.ItemType,data.ItemId)">Add to cart</a></h6>
+                                <h6><a href="" ng-click="addItemToCart(data.Description, data.Name,data.ItemImage ,data.Price, 1,data.IsStockPresent,data.ItemType,data.ItemId)">Add to cart</a></h6>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -168,6 +171,7 @@
                     </div>
                 </div>
             </div>
+
             <!--<div class="container text-center">
                 <div class="row">
                     <div class="col-md-12">
@@ -175,7 +179,7 @@
                     </div>
                 </div>
             </div>-->
-            <div class="container section">
+            <!--<div class="container section">
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="news">
@@ -189,38 +193,19 @@
                         <h1>HOT SALE!</h1>
                         <div class="clearfix"></div>
                         <div class="row">
-                            <div class="col-lg-3" ng-repeat="data in HotsaleResponse">
+                            <div class="col-lg-3" ng-repeat="data in top8response">
                                 <img src="{{data.ItemImage}}" ng-click="function(data)" alt="{{data.ItemImage}}">
-                                <h5>{{data.ItemName}}</h5>
+                                <h5>{{data.Name}}</h5>
                                 <h4>{{data.Price}} <del>{{data.Price}}</del></h4>
-                                <h6><a href="" ng-click="addItemToCart(data.ItemDescription, data.ItemName,data.ItemImage ,data.Price, 1,data.IsStockPresent,data.ItemType,data.ItemId)">Add to cart</a></h6>
+                                <h6><a href="" ng-click="addItemToCart(data.Description, data.Name,data.ItemImage ,data.Price, 1,data.IsStockPresent,data.ItemType,data.ItemId)">Add to cart</a></h6>
                             </div>
-                            <!--<%--        <div class="col-lg-3">
-                                <img src="../images/img2.jpg" alt="book1">
-                                <h5>ielts tips</h5>
-                                <h4>$34.00 <del>$36.00</del></h4>
-                                <h6><a href="#">Add to cart</a></h6>
-                            </div>
-                            <div class="col-lg-3">
-                                <img src="../images/img4.jpg" alt="book1">
-                                <h5>ielts tips</h5>
-                                <h4>$34.00 <del>$36.00</del></h4>
-                                <h6><a href="#">Add to cart</a></h6>
-                            </div>
-                            <div class="col-lg-3">
-                                <img src="../images/img3.jpg" alt="book1">
-                                <h5>ielts tips</h5>
-                                <h4>$34.00 <del>$36.00</del></h4>
-                                <h6><a href="#">Add to cart</a></h6>
-                            </div>--%>-->
+
                         </div>
                     </div>
                 </div>
-            </div>
-
+            </div>-->
         </div>
         <div class="IndexPage" ng-show="IndexPage==true">
-
 
             <div class="container section">
                 <div class="row">
@@ -238,14 +223,12 @@
                             <li><a href="" ng-click="applyFilterItemType('Digital')">Digital</a></li>
                             <li><a href="" ng-click="applyFilterItemType('Physical')">Physical</a></li>
                         </ul>-->
-
                         <div class="news">
                             <h4>Sign Up for Send Newsletter</h4>
                             <p>You can be always up to date with our company new!</p>
                             <input type="text" class="form-control" placeholder="Signup Newsletter">
                             <a href="#">Sign Up</a>
                         </div>
-
                     </div>
                     <div class="col-lg-9 product">
                         <div class="row">
@@ -257,17 +240,12 @@
                             </div>
 
 
-
-
-
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="DetailPage" ng-show="DetailPage==true">
-
             <div class="banner-inner">
                 <div class="container">6 Practice Test for the IELTS</div>
             </div>
@@ -354,11 +332,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
         <div class="CheckOutpage" ng-show="CheckOutpage==true">
-
             <div class="account-in">
                 <div class="container">
                     <div class="check_box">
@@ -366,7 +341,7 @@
                             <h1>Shopping Bag</h1>
                             <!--<%--
                             <script>
-$(document).ready(function (c) {
+                                $(document).ready(function (c) {
                                     $('.close1').on('click', function (c) {
                                         $('.cart-header').fadeOut('slow', function (c) {
                                             $('.cart-header').remove();
@@ -381,7 +356,7 @@ $(document).ready(function (c) {
                                         <img src="{{item.ItemImage}}" class="img-responsive" alt="" />
                                     </div>
                                     <div class="cart-item-info">
-                                       <!-- <%-- <h3><a href="#">Mountain Hopper(XS R034)</a><span>Model No: 3578</span></h3>--%>-->
+                                        <!-- <%-- <h3><a href="#">Mountain Hopper(XS R034)</a><span>Model No: 3578</span></h3>--%>-->
                                         <h3>{{item.name}}</h3>
                                         <ul class="qty">
                                             <li>
@@ -402,7 +377,7 @@ $(document).ready(function (c) {
                             </div>
                             <!--<%--
                             <script>
-$(document).ready(function (c) {
+                                $(document).ready(function (c) {
                                     $('.close2').on('click', function (c) {
                                         $('.cart-header2').fadeOut('slow', function (c) {
                                             $('.cart-header2').remove();
@@ -447,9 +422,7 @@ $(document).ready(function (c) {
                 </div>
             </div>
 
-
         </div>
-
         <div class="LoginPage" ng-show="Loginpage==true">
             <div class="banner-inner"> <div class="container">LOGIN OR CREATE AN ACCOUNT</div></div>
             <div style="background: #eee;">
@@ -463,7 +436,7 @@ $(document).ready(function (c) {
                                 <li>&#9989; Save multiple shipping addresses</li>
                                 <li>&#9989; View and track orders and more</li>
                             </ul>
-                         <!--   <%--   <input type="submit" ng-click="DisplayRegistrationPage() value="Create Account" class="form-control">--%>-->
+                            <!--   <%--   <input type="submit" ng-click="DisplayRegistrationPage() value="Create Account" class="form-control">--%>-->
                             <a href="" ng-click="DisplayRegistrationPage()" class="create">Create an account</a>
                         </div>
                         <div class="col-lg-1"></div>
@@ -481,27 +454,22 @@ $(document).ready(function (c) {
                                 <span style="color: red" ng-show="(Form.Password.$dirty || submitted) && Form.Password.$invalid">
                                     <span ng-show="Form.Password.$error.required">Password is required.</span>
                                 </span>
-
                                 <a href="#">Forget password?</a>
                                 <label>&nbsp;</label>
                                 <button type="submit" class="btn btn-primary">Login</button>
                             </form>
                         </div>
 
-
-
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="RegistrationPage" ng-show="RegistrationPage==true">
             <div class="account-in">
                 <div class="container">
                     <form name="Form" ng-submit="Submit()">
                         <div class="">
                             <h2>PERSONAL INFORMATION</h2>
-
 
                             <div class="form-group">
                                 <label for="inputFirstName" class="control-label col-md-3  text-right">First Name <span class="requiredspan" title="Required">*</span> :</label>
@@ -557,7 +525,6 @@ $(document).ready(function (c) {
                                     </span>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label for="inputPIN" class="control-label col-md-3  text-right">PIN Code<span class="requiredspan" title="Required">*</span> :</label>
                                 <div class="col-md-3">
@@ -595,23 +562,17 @@ $(document).ready(function (c) {
                                 </div>
                             </div>
                             <div class="clearfix"></div>
-
                         </div>
 
-
-
                         <div class="register-but">
-
                             <!--<%-- <input type="submit" value="submit">--%>-->
                             <button type="submit" class="btn btn-primary pull-right">Submit</button>
                             <div class="clearfix"></div>
-
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
         <div class="ThankYouPage" ng-show="ThankYouPage==true">
             <div class="men">
                 <div class="container">
@@ -664,7 +625,6 @@ $(document).ready(function (c) {
                 </div>
             </div>
         </div>
-
         <!-- footer start here -->
         <footer>
             <div class="container fot-menu"><a href="#">Home</a> |<a href="#">Shop Portal</a> | <a href="#">Contact</a> </div>
@@ -690,7 +650,6 @@ $(document).ready(function (c) {
                         <strong>Call us now:</strong> (+91) 172-5000060 <strong>Email:</strong>info@touchstoneesol.com
                     </div>
                 </div>
-
             </div>
             <div class="container copyright">
                 All rights are reserved by Touchstone Educationals Pvt Ltd.<br>
@@ -698,9 +657,6 @@ $(document).ready(function (c) {
             </div>
         </footer>
         <!-- footer end here -->
-        </asp:Content>
 
     </div>
-
 </div>
-

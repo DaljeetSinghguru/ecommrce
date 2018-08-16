@@ -2,7 +2,7 @@
     function ($scope, $http, $window, $rootScope) {
 
         // $scope.Url = "http://www.touchstoneesol.com/testslimapi/api/";
-        $scope.Url = "http://localhost:63988/api/";
+        $scope.Url = "http://localhost:50433/api/";
 
         $scope.options = [{ Id: "1", Country: "America", Currency: "Dollars", Code: "USD", Symbol: "$" },
         { Id: "2", Country: "Australia", Currency: "Dollars", Code: "AUD", Symbol: "$" },
@@ -15,37 +15,6 @@
         { Id: "9", Country: "New Zealand", Currency: "Dollars", Code: "NZD", Symbol: "$" }]
 
 
-
-        $scope.onCountryChange = function (country) {
-            debugger
-            // var currentSelected = $filter('filter')($scope.options, { id: $scope.itemSelected })[0]
-            // $window.alert("Selected Value: " + currentSelected.id + "\nSelected Text: " + currentSelected.name);
-
-
-            //Code            :            "AUD"
-            //Country            :            "Australia"
-            //Currency            :            "Dollars"
-            //Id            :            "2"
-            //Symbol            :            "$"
-
-
-            $scope.CountryName = country.Country;
-            $scope.CountrySymbol = country.Symbol;
-            $scope.items = [];
-            $window.localStorage.clear();
-
-            //Get All data of product digital and physical
-            $http({
-                method: 'GET', url: $scope.Url + 'ShopPortalListing?Country=' + $scope.CountryName
-            }).
-                success(function (data, status, headers, config) {
-                    $scope.response = data;
-                }).
-                error(function (data, status, headers, config) {
-                });
-
-
-        }
 
 
         /////////////
@@ -86,10 +55,24 @@
         }
         ///Get data for top 8 item show on home page
         $http({
-            method: 'GET', url: $scope.Url + 'HomeShopListing?Country=India'
+            method: 'GET', url: $scope.Url + 'ShopPortalListing'
         }).
             success(function (data, status, headers, config) {
                 $scope.top8response = data;
+            }).
+            error(function (data, status, headers, config) {
+            });
+
+
+        ///Get data for top 8 item show on home page
+        $http({
+            method: 'GET', url: $scope.Url + 'Menu'
+        }).
+            success(function (data, status, headers, config) {
+
+                debugger
+                $scope.AllCategory =  JSON.parse(data)
+               // $scope.AllCategory = data;
             }).
             error(function (data, status, headers, config) {
             });
