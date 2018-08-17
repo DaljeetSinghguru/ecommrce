@@ -70,9 +70,9 @@
         }).
             success(function (data, status, headers, config) {
 
-                debugger
+                
                 $scope.AllCategory =  JSON.parse(data)
-               // $scope.AllCategory = data;
+                //$scope.AllCategory1 = data;
             }).
             error(function (data, status, headers, config) {
             });

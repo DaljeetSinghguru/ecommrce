@@ -90,13 +90,13 @@
         <div class="HomePage" ng-show="HomePage==true">
 
 
-            <!--<div class="banner"></div>-->
+            <div class="banner"></div>
             <div class="container section">
                 <div class="row">
                     <div class="col-lg-3 filter">
                         <!--<h5>Main Whole Sale Items</h5>-->
                         <ul>
-                            <!--<li ng-repeat="data in AllCategory"><a href="" ng-click="applyFilterByCourse('IELTS')">{{data.CategoryName}} </a> </li>-->
+                            <li ng-repeat="data in AllCategory"><a href="" ng-click="applyFilterByCourse('IELTS')">{{data.Description}} </a> </li>
                             <!--<li><a href="" ng-click="applyFilterByCourse('PTE')">Power Tool Cordless</a></li>
                             <li><a href="" ng-click="applyFilterByCourse('SPOKEN ENGLISH')">Power Tool Accessories</a></li>
                             <li><a href="" ng-click="applyFilterByCourse('TOEFL')">Hand Tool</a></li>
@@ -111,9 +111,11 @@
                     </div>
                     <div class="col-lg-9 product">
                         <div class="row">
+                            
                             <div class="col-lg-3" ng-repeat="data in top8response">
                                 <!--<img src="{{data.ItemImage}}" ng-click="function(data)" alt="{{data.ItemImage}}">-->
-                                <img src="../../ItemImage/ItemImages/111.jpg" />
+                                
+                                <img src="../../ItemImage/page2_img1.jpg" />
                                 <h5>{{data.Name}}</h5>
                                 <h4>{{data.Price}} <del>{{data.Price}}</del></h4>
                                 <h6><a href="" ng-click="addItemToCart(data.Description, data.Name,data.ItemImage ,data.Price, 1,data.IsStockPresent,data.ItemType,data.ItemId)">Add to cart</a></h6>
@@ -145,6 +147,30 @@
             </div>
             <div class="container section">
                 <div class="row">
+                    <div class="col-lg-6">
+                        <div class="box">
+                            <div class="book1">
+                                <img src="../../ItemImage/book1.png" alt="book1">
+                            </div>
+                            <h2>Summer WorkWear </h2>
+                            <p>
+                                Stay Cool On Job SHOP NOW!!!!!!
+                            </p>
+                            <a href="#">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box">
+                            <div class="book1">
+                                <img src="../../ItemImage/book1.png" alt="book1">
+                            </div>
+                            <h2>Summer WorkWear </h2>
+                            <p>
+                                Stay Cool On Job SHOP NOW!!!!!!
+                            </p>
+                            <a href="#">Learn More</a>
+                        </div>
+                    </div>
                     <div class="col-lg-6">
                         <div class="box">
                             <div class="book1">

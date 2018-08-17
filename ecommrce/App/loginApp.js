@@ -11,7 +11,7 @@
 //}]);
 
 app.config(['$routeProvider',  function ($routeProvider) {
-    debugger
+    
    // $httpProvider.interceptors.push('httpInterceptor');
 
     $routeProvider

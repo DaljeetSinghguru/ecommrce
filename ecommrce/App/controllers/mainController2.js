@@ -1,5 +1,5 @@
 ﻿app.controller('appmainController2', ['$scope', '$location', function ($scope,  $location) {
-    debugger
+    
     //$scope.main = [];
     //$scope.main.brand = 'QMS';
     //$scope.main.name = 'Demo User';
