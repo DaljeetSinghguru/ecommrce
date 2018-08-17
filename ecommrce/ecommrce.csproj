@@ -67,9 +67,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="App\Admin\controllers\SubCategoryController.js" />
     <Content Include="App\Admin\controllers\CategoryController.js" />
     <Content Include="App\Admin\controllers\LandingPageVisaController.js" />
     <Content Include="App\Admin\controllers\mainController_v11.js" />
+    <Content Include="App\Admin\views\SubCategoryView.html" />
     <Content Include="App\Admin\views\CategoryView.html" />
     <Content Include="App\Admin\views\LandingPageVisa.html" />
     <Content Include="app_v10.html" />
@@ -786,8 +788,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\app_v10.js" />
-    <Content Include="App\controllers\DashboardMainController.js" />
-    <Content Include="App\controllers\data.js" />
     <Content Include="App\controllers\ShopDetailController.js" />
     <Content Include="App\controllers\ShopmainController.js" />
     <Content Include="App\controllers\loginController.js" />

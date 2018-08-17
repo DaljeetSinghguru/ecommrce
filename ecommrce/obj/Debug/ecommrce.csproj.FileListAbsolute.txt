@@ -16,3 +16,4 @@ E:\dsg\ecommrce\ecommrce\obj\Debug\ecommrce.csproj.CoreCompileInputs.cache
 E:\dsg\ecommrce\ecommrce\obj\Debug\ecommrce.csproj.CopyComplete
 E:\dsg\ecommrce\ecommrce\obj\Debug\ecommrce.dll
 E:\dsg\ecommrce\ecommrce\obj\Debug\ecommrce.pdb
+E:\dsg\ecommrce\ecommrce\obj\Debug\ecommrce.csprojResolveAssemblyReference.cache
