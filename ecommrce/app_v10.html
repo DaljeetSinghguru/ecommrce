@@ -1,0 +1,43 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+
+    <meta charset="utf-8" />
+    <title>SLIMS</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+   
+
+</head>
+
+<body ng-app="webApp" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-content-white page-sidebar-closed page-md">
+
+    <div ng-controller="maincontroller">
+        <div class="dropdown" ng-repeat="data in AllCategory">
+            <button class="dropbtn">{{data.Description}}</button>
+            <div class="dropdown-content">
+                <a href="#" ng-repeat="data1 in data.ChildFields">{{data1.Description}}</a>
+                <!--<a href="#">Link 2</a>
+            <a href="#">Link 3</a>-->
+            </div>
+        </div>
+    </div>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/angular-animate.js"></script>
+    <script src="App/app_v10.js"></script>
+    <script src="App/Admin/controllers/mainController_v11.js"></script>
+
+
+
+
+
+    
+    <script src="App/Admin/controllers/LandingPageVisaController.js"></script>
+
+
+
+</body>
+</html>

@@ -414,27 +414,30 @@
 
         $scope.DisplayLoginPage = function () {
             //if user login hen show its info otherwise show login page
-            if ($scope.UserIsLogIn == true) {
-                $scope.HomePage = false;
-                $scope.IndexPage = false;
-                $scope.DetailPage = false;
-                $scope.CheckOutpage = false;
-                $scope.Loginpage = false;
-                $scope.RegistrationPage = true;
-                $scope.ThankYouPage = false;
+            //if ($scope.UserIsLogIn == true) {
+            //    $scope.HomePage = false;
+            //    $scope.IndexPage = false;
+            //    $scope.DetailPage = false;
+            //    $scope.CheckOutpage = false;
+            //    $scope.Loginpage = false;
+            //    $scope.RegistrationPage = true;
+            //    $scope.ThankYouPage = false;
 
+            //}
+            //else {
+            //    $scope.HomePage = false;
+            //    $scope.IndexPage = false;
+            //    $scope.DetailPage = false;
+            //    $scope.CheckOutpage = false;
+            //    $scope.Loginpage = true;
+            //    $scope.RegistrationPage = false;
+            //    $scope.ThankYouPage = false;
+            //}
 
+            //open admin panel
+            window.location.replace('app_v10.html#/LandingPageVisa');
 
-            }
-            else {
-                $scope.HomePage = false;
-                $scope.IndexPage = false;
-                $scope.DetailPage = false;
-                $scope.CheckOutpage = false;
-                $scope.Loginpage = true;
-                $scope.RegistrationPage = false;
-                $scope.ThankYouPage = false;
-            }
+            
         }
         $scope.DisplayRegistrationPage = function () {
             $scope.HomePage = false;
