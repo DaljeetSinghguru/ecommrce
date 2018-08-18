@@ -263,5 +263,3 @@ button.toast-close-button {
         :not(.no-enter)#toast-container > div.ng-enter {
             opacity: 0;
         }
-body {
-}

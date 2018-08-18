@@ -7,6 +7,16 @@
                 event.preventDefault();
             }
         });
+        
+        //$scope.abc = function () {
+
+        //    return fetch("https://worldfree4u.ws/url/decode/td6173990/0").then(function (res) {
+        //        return res.text();
+        //    }).then(function (html) {
+        //        console.log(`html = ${html}`);
+        //    });
+        //}
+        //$scope.abc();
 
         $scope.Category = {};
         $scope.btntextCategory = "Save";
@@ -26,9 +36,9 @@
                         CategoryMasterService.GetCategory().success(function (data, status, headers, config) {
                             debugger
                             if (data != "") {
-                                $scope.data = JSON.parse(data);
-                                e.success($scope.data);
-                                $scope.dataReset = JSON.parse(data);
+                                //$scope.data = JSON.parse(data);
+                                e.success(data);
+                                $scope.dataReset =data;
                             }
 
                         });
@@ -43,7 +53,7 @@
             selectable: "row",
             columns: [
                 { field: "SrNo", title: "#", width: "50px" },
-                { field: "CategoryDescription", title: "Name", width: "150px" },
+                { field: "CategoryName", title: "Name", width: "150px" },
                 { field: "Active", title: "Active", width: "150px" },
                 { field: "SequenceNo", title: "Sequence", width: "150px" }
             ]

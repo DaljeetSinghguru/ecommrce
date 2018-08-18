@@ -1,6 +1,7 @@
 ﻿
 var app = angular.module('webApp', [
-    'ngRoute',
+    'ngRoute', 'ui.bootstrap',
+    'kendo.directives',
 ]).run(['$rootScope', function ($rootScope, $routeChangeStart) {
     
     $rootScope.$on('$routeChangeStart', function (event, next, current) {
@@ -23,6 +24,11 @@ app.config(['$routeProvider', '$locationProvider',
                 templateUrl: 'App/Admin/views/CategoryView.html',
                 contrller: 'app/controllers/Master/CountryMasterController.js'
             })
+            .when('/SubCategory', {
+
+                    templateUrl: 'App/Admin/views/SubCategoryView.html',
+                    contrller: 'app/controllers/Master/SubCountryMasterController.js'
+                })
             .when('/CollegeList', {
                 templateUrl: 'app/views/Master/CollegeMasterView.html',
                 contrller: 'app/controllers/CollegeMasterController.js'

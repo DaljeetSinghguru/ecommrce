@@ -1,0 +1,88 @@
+﻿<style type="text/css">
+    .input-group-btn {
+        font-size: 12px;
+    }
+
+    #lbl_custm_End {
+        margin-top: 1px;
+    }
+
+    .slider.round {
+        margin-top: 9px;
+    }
+
+    .slider {
+        min-height: 19px;
+    }
+
+    .TopAdvancedFilters {
+        padding-bottom: 10px !important;
+    }
+</style>
+
+<div ng-controller="BrandController" class="">
+    <div class="col-md-12"><h2 class="page-heading">Brand</h2></div>
+
+    <div class="panel">
+        <div class="col-md-12">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="sec">
+                        <p><strong>Brand Name</strong></p>
+                        <div class="input-sec">
+                            <input class="form-control" type="text" ng-model="Brand.BrandDescription1" placeholder="Brand Name" ng-change="ClearValMsgBrandDescription1()" />
+                            <span ng-show="BrandDescription1==true" class="errorctmMsg">Please enter Brand name.</span>
+                            <small>Enter Brand Name</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="sec">
+                        <p><strong>Sequence</strong></p>
+                        <div class="input-sec">
+                            <input class="form-control" type="text" numbers-only limit-to="10" placeholder="Sequence No" ng-model="Brand.SequenceNo1" />
+                            <small>Enter Sequence No</small>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-md-4">
+                    <div class="sec">
+                        <p><strong>Active</strong></p>
+                        <div class="input-sec">
+                            <label class="switch" ng-click="showIsTuchstoneStudent()">
+                                <input type="checkbox" ng-model="Brand.Active1">
+                                <span class="slider round"></span>
+                            </label>
+                            <small>Active/ Inactive</small>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="pull-right">
+                <a class="red-btn" ng-click="SaveBrand()">{{btntextBrand}}</a>
+                <a class="red-btn" ng-click="ClearBrandFields()">Cancel</a>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="col-md-12">
+            <div id="BrandGrid" kendo-grid="gridBrand" options="BrandgridOptions" k-rebind="BrandGridRebind" k-on-change="onChangeBrandGrid({ selected: selected },data,dataItem,angularDataItem)" k-selectable="true" class="link-hover k-grid k-widget">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</div>
