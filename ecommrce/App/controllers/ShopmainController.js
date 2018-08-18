@@ -1,6 +1,5 @@
-﻿app.controller('ShopmainController',
-    function ($scope, $http, $window, $rootScope) {
-
+﻿app.controller('ShopmainController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 
+            function ($scope, $window, $location, $modal,  $rootScope, $http) {
         // $scope.Url = "http://www.touchstoneesol.com/testslimapi/api/";
         $scope.Url = "http://localhost:50433/api/";
 
@@ -76,31 +75,31 @@
             }).
             error(function (data, status, headers, config) {
             });
-        //Get Data for hotsale top4 product
-        $http({ method: 'GET', url: $scope.Url + 'HomeShopHotSaleListing' }).
-            success(function (data, status, headers, config) {
-                $scope.HotsaleResponse = data;
-            }).
-            error(function (data, status, headers, config) {
-            });
+        ////Get Data for hotsale top4 product
+        //$http({ method: 'GET', url: $scope.Url + 'HomeShopHotSaleListing' }).
+        //    success(function (data, status, headers, config) {
+        //        $scope.HotsaleResponse = data;
+        //    }).
+        //    error(function (data, status, headers, config) {
+        //    });
 
-        $http({ method: 'GET', url: $scope.Url + 'ShopPortalListing?Country=India' }).
-            success(function (data, status, headers, config) {
-                $scope.CountrySymbol = "\u20B9";
-                $scope.response = data;
-            }).
-            error(function (data, status, headers, config) {
-            });
+        //$http({ method: 'GET', url: $scope.Url + 'ShopPortalListing?Country=India' }).
+        //    success(function (data, status, headers, config) {
+        //        $scope.CountrySymbol = "\u20B9";
+        //        $scope.response = data;
+        //    }).
+        //    error(function (data, status, headers, config) {
+        //    });
 
 
-        //Get Token Request for braintree paymentgateway
-        $scope.param = { "Amount": "11", "payment_method_nonce": "" };
-        $http({ method: 'POST', url: $scope.Url + 'Payment/Request/', data: $scope.param }).
-            success(function (data, status, headers, config) {
-                $scope.Token = data;
-            }).
-            error(function (data, status, headers, config) {
-            });
+        ////Get Token Request for braintree paymentgateway
+        //$scope.param = { "Amount": "11", "payment_method_nonce": "" };
+        //$http({ method: 'POST', url: $scope.Url + 'Payment/Request/', data: $scope.param }).
+        //    success(function (data, status, headers, config) {
+        //        $scope.Token = data;
+        //    }).
+        //    error(function (data, status, headers, config) {
+        //    });
         $scope.function = function (data) {
             debugger
             $scope.IndexPage = false;
@@ -434,8 +433,21 @@
             //    $scope.ThankYouPage = false;
             //}
 
+
+
+
             //open admin panel
-            window.location.replace('app_v10.html#/LandingPageVisa');
+           // window.location.replace('app_v10.html#/LandingPageVisa');
+            $scope.LoginError = "";
+            $scope.btnSaveText = "Submit";
+            $scope.Title = "Choose Extension";
+            $scope.modalInstanceExtention = $modal.open({
+                scope: $scope,
+                templateUrl: 'App/views/LoginView.html',
+                //controller: 'AddExtentionController',
+            });
+
+
 
             
         }
@@ -586,4 +598,4 @@
                 error(function (data, status, headers, config) {
                 });
         }
-    });
+    }]);

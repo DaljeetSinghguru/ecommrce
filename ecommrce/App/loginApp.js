@@ -1,6 +1,6 @@
 ﻿var app = angular.module('loginApp', [
     'ngRoute',
-    
+    'ui.bootstrap',
 
 ]);
 

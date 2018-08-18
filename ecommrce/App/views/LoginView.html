@@ -1,0 +1,87 @@
+﻿<style type="text/css">
+    .modal-dialog {
+        margin-top: 10%;
+    }
+
+    .modal-backdrop.in {
+        opacity: 10;
+    }
+
+    label {
+        margin-top: 7px;
+        margin-bottom: 0;
+        padding: 0;
+    }
+
+    .requiredspan {
+        color: #ff0000;
+    }
+</style>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="cancel()">&times;</button>
+        <h4 class="modal-title">{{Title}}</h4>
+    </div>
+    <form ng-submit="GOTODestinationPage()" name="forms.frmArea" novalidate="" class="supSupplier" enter-tab>
+        <div class="modal-body">
+            <div style="text-align:right;">
+                Fields marked<span style="color:red">* </span>are required
+            </div>
+
+
+            <div id="dv_TaskForm" class="input-sec-pop-up ctm_Personal" style="padding-bottom:0px !important;">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="sec">
+                            <p style="padding:5px !important;"><strong style="color:white;">Centre</strong>  </p>
+                            <div class="input-sec">
+                                <select kendo-combo-box class="form-control" name="Centre" ng-model="Centre" ng-change="GetSelectedCentre(Centre)" required>
+
+                                    <option ng-repeat="option in CentreList" ng-selected="option.Id==dataCentreheadid" value="{{option.Id}}">{{option.Name}}</option>
+                                </select>
+                              
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="sec">
+                            <p style="padding:5px !important;"><strong style="color:white;">Campus</strong>  </p>
+                            <div class="input-sec">
+                                <select kendo-combo-box class="form-control" name="Campus" ng-model="Campus" ng-change="GetSelectedCampus(Campus)" required>
+
+                                    <option ng-repeat="option in CampusList" ng-selected="option.Id==dataCentreId" value="{{option.Id}}">{{option.Name}}</option>
+                                </select>
+                           
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="sec">
+                            <p style="padding:5px !important;"><strong style="color:white;">Extension No</strong>  </p>
+                            <div class="input-sec">
+                                <select kendo-combo-box class="form-control" name="Extension" ng-model="Extension" ng-change="GetSelectedExtension(Extension)" required>
+
+                                    <option ng-repeat="option in ExtensionList" ng-selected="option.Id==dataExtensionId" value="{{option.Id}}">{{option.Name}}</option>
+                                </select>
+                             
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="modal-footer forforms">
+          
+            <button type="submit" autofocus class="red-btn">Submit </button>
+            <button type="button" class="red-btn" ng-click="cancel()">Cancel </button>
+        </div>
+    </form>
+</div>
