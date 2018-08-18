@@ -71,10 +71,12 @@
     <Content Include="App\Admin\controllers\CategoryController.js" />
     <Content Include="App\Admin\controllers\LandingPageVisaController.js" />
     <Content Include="App\Admin\controllers\mainController_v11.js" />
+    <Content Include="App\Admin\Services\CategoryMasterService.js" />
     <Content Include="App\Admin\views\SubCategoryView.html" />
     <Content Include="App\Admin\views\CategoryView.html" />
     <Content Include="App\Admin\views\LandingPageVisa.html" />
     <Content Include="app_v10.html" />
+    <Content Include="Content\css\SlimsStyle.css" />
     <Content Include="Content\css\toaster.css" />
     <Content Include="ItemImage\1.jpg" />
     <Content Include="ItemImage\1ajax-loader.gif" />
