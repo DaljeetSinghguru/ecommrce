@@ -1,23 +1,73 @@
 ﻿app.controller('BrandController', ['$scope', '$http', 'BrandMasterService', '$anchorScroll', 
     function ($scope, $http, BrandMasterService, $anchorScroll) {
         debugger
-        $anchorScroll();
-        $('input').keypress(function (event) {
-            if (event.keyCode == 13) {
-                event.preventDefault();
+
+        $scope.FileNameUpload = "";
+        $scope.imageUpload = function (event) {
+            $scope.PlsUploadOfferLetter = false;
+            var files = event.target.files; //FileList object
+            $scope.FileOfferletterUpload = event.target.files;
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                var reader = new FileReader();
+                reader.onload = $scope.imageIsLoaded;
+                reader.readAsDataURL(file);
             }
-        });
+
+            $scope.FileNameUpload = files[0].name;
+            $scope.$apply();
+
+        }
+
+
+        $scope.SavebrandDetail = function () {
+            debugger
+            // $scope.Brand;
+            //  $scope.FileOfferletterUpload 
+
+            brandService.InsertBrandData($scope.FileOfferletterUpload, $scope.Brand.Name).success(function (data, status, headers, config) {
+                if (data.length > 0) {
+                    //  toaster.pop('success', "Success", "Offer letter is successfully uploaded");
+                }
+            })
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////BIND GRID DATA///////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        $scope.GridOptions = {
+            dataSource: {
+                transport: {
+                    read: function (e) {
+                        brandService.getData().success(function (data, status, headers, config) {
+                            if (status == "200") {
+                                if (data != "") {
+                                    e.success(JSON.parse(data));
+                                    $scope.OpenFilterPopup = false;
+                                }
+                                else { toaster.pop('alert', "Alert", "No Data Found With This Search Selection"); }
+                            }
+                        }).error(function (data, status, headers, config) {
+                            toaster.pop('error', "Error", "Please Contact Admin. Some Error Occur In Connection");
+                        });
+                    }
+                },
+                pageSize: 20,
+                //serverPaging: true,
+                // serverSorting: true
+            },
+            sortable: true,
+            pageable: true,
+            columns: [
+                { field: "SNo", title: "#", width: "40px", },
+                { field: "BrandName", title: "Name", width: "150px", },
+                { field: "Filename", title: "File Name", width: "150px", },
+                { field: "ImageUrl", title: "Image Url", width: "100px" }
+            ]
+        };
+
+
+
         
-        //$scope.abc = function () {
-
-        //    return fetch("https://worldfree4u.ws/url/decode/td6173990/0").then(function (res) {
-        //        return res.text();
-        //    }).then(function (html) {
-        //        console.log(`html = ${html}`);
-        //    });
-        //}
-        //$scope.abc();
-
         $scope.Brand = {};
         $scope.btntextBrand = "Save";
 
