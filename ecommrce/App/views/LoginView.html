@@ -27,6 +27,7 @@
         <div class="modal-body">
             <div style="text-align:right;">
                 Fields marked<span style="color:red">* </span>are required
+                <!--<div class="tooltip1"><i class="fa fa-info"></i><span class="tooltiptext">Lorem ipsum is simply dummy text for priting Lorem ipsum is simply dummy text for priting Lorem ipsum is simply dummy text for priting</span></div>-->
             </div>
 
 
@@ -35,51 +36,30 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="sec">
-                            <p style="padding:5px !important;"><strong style="color:white;">Centre</strong>  </p>
+                            <p ><strong >User Name</strong>  </p>
                             <div class="input-sec">
-                                <select kendo-combo-box class="form-control" name="Centre" ng-model="Centre" ng-change="GetSelectedCentre(Centre)" required>
-
-                                    <option ng-repeat="option in CentreList" ng-selected="option.Id==dataCentreheadid" value="{{option.Id}}">{{option.Name}}</option>
-                                </select>
-                              
-
+                            <input type="text" ng-model="sName" />
+                                
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-12">
                         <div class="sec">
-                            <p style="padding:5px !important;"><strong style="color:white;">Campus</strong>  </p>
+                            <p ><strong >Password</strong>  </p>
                             <div class="input-sec">
-                                <select kendo-combo-box class="form-control" name="Campus" ng-model="Campus" ng-change="GetSelectedCampus(Campus)" required>
-
-                                    <option ng-repeat="option in CampusList" ng-selected="option.Id==dataCentreId" value="{{option.Id}}">{{option.Name}}</option>
-                                </select>
-                           
+                                <input type="text" ng-model="sUserPassword" />
 
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-12">
-                        <div class="sec">
-                            <p style="padding:5px !important;"><strong style="color:white;">Extension No</strong>  </p>
-                            <div class="input-sec">
-                                <select kendo-combo-box class="form-control" name="Extension" ng-model="Extension" ng-change="GetSelectedExtension(Extension)" required>
-
-                                    <option ng-repeat="option in ExtensionList" ng-selected="option.Id==dataExtensionId" value="{{option.Id}}">{{option.Name}}</option>
-                                </select>
-                             
-
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
             </div>
         </div>
         <div class="modal-footer forforms">
-          
+            <!-- <a id="submit-button" class="order red-btn" href="#" ng-click="">Submit</a>-->
             <button type="submit" autofocus class="red-btn">Submit </button>
             <button type="button" class="red-btn" ng-click="cancel()">Cancel </button>
         </div>

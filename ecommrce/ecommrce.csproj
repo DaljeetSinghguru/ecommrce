@@ -70,6 +70,7 @@
     <Content Include="App\Admin\Services\BrandMasterService.js" />
     <Content Include="App\Admin\Services\SubCategoryMasterService.js" />
     <Content Include="App\Admin\views\BrandView.html" />
+    <Content Include="App\controllers\CheckLoginController.js" />
     <Content Include="App\views\LoginView.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
