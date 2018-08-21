@@ -1,5 +1,5 @@
-﻿app.controller('BrandController', ['$scope', '$http', 'BrandMasterService', '$anchorScroll', 
-    function ($scope, $http, BrandMasterService, $anchorScroll) {
+﻿app.controller('BrandController', ['$scope', '$http', 'brandService', '$anchorScroll', 
+    function ($scope, $http, brandService , $anchorScroll) {
         debugger
 
         $scope.FileNameUpload = "";
@@ -38,6 +38,7 @@
             dataSource: {
                 transport: {
                     read: function (e) {
+                        debugger
                         brandService.getData().success(function (data, status, headers, config) {
                             if (status == "200") {
                                 if (data != "") {
@@ -58,7 +59,7 @@
             sortable: true,
             pageable: true,
             columns: [
-                { field: "SNo", title: "#", width: "40px", },
+                { field: "BrandId", title: "#", width: "40px", },
                 { field: "BrandName", title: "Name", width: "150px", },
                 { field: "Filename", title: "File Name", width: "150px", },
                 { field: "ImageUrl", title: "Image Url", width: "100px" }
@@ -78,36 +79,36 @@
         }
 
         //Get Coutry Data into Grid
-        $scope.BrandgridOptions = {
-            dataSource: {
-                transport: {
-                    read: function (e) {
-                        debugger
-                        BrandMasterService.GetBrand().success(function (data, status, headers, config) {
-                            debugger
-                            if (data != "") {
-                                //$scope.data = JSON.parse(data);
-                                e.success(data);
-                                $scope.dataReset =data;
-                            }
+        //$scope.BrandgridOptions = {
+        //    dataSource: {
+        //        transport: {
+        //            read: function (e) {
+        //                debugger
+        //                BrandMasterService.GetBrand().success(function (data, status, headers, config) {
+        //                    debugger
+        //                    if (data != "") {
+        //                        //$scope.data = JSON.parse(data);
+        //                        e.success(data);
+        //                        $scope.dataReset =data;
+        //                    }
 
-                        });
-                    }
-                },
-                pageSize: 10,
-                //serverPaging: true,
-                // serverSorting: true
-            },
-            sortable: true,
-            pageable: true,
-            selectable: "row",
-            columns: [
-                { field: "SrNo", title: "#", width: "50px" },
-                { field: "BrandName", title: "Name", width: "150px" },
-                { field: "Active", title: "Active", width: "150px" },
-                { field: "SequenceNo", title: "Sequence", width: "150px" }
-            ]
-        };
+        //                });
+        //            }
+        //        },
+        //        pageSize: 10,
+        //        //serverPaging: true,
+        //        // serverSorting: true
+        //    },
+        //    sortable: true,
+        //    pageable: true,
+        //    selectable: "row",
+        //    columns: [
+        //        { field: "SrNo", title: "#", width: "50px" },
+        //        { field: "BrandName", title: "Name", width: "150px" },
+        //        { field: "Active", title: "Active", width: "150px" },
+        //        { field: "SequenceNo", title: "Sequence", width: "150px" }
+        //    ]
+        //};
 
         //Save/Update Data Into Grid 
         $scope.SaveBrand = function () {
@@ -127,7 +128,7 @@
                 $scope.Brand.SequenceNo = $scope.Brand.SequenceNo1;
                 $scope.Brand.Active = $scope.Brand.Active1;
                 if ($scope.Brand.BrandId) { $scope.Brand.BrandId = $scope.Brand.BrandId; }
-                BrandMasterService.InsertBrand($scope.Brand).success(function (data, status, headers, config) {
+                brandService.InsertBrand($scope.Brand).success(function (data, status, headers, config) {
                     $scope.BrandDescription1 = false;
 
                     $scope.OutputData = JSON.parse(data);

@@ -24,6 +24,14 @@ app.config(['$routeProvider', '$locationProvider',
                 templateUrl: 'App/Admin/views/CategoryView.html',
                 contrller: 'app/controllers/Master/CountryMasterController.js'
             })
+            .when('/Brand', {
+                templateUrl: 'App/Admin/views/BrandView.html',
+                contrller: 'app/controllers/Master/CountryMasterController.js'
+            })
+            .when('/Item', {
+                templateUrl: 'App/Admin/views/ItemView.html',
+                contrller: 'app/controllers/Master/CountryMasterController.js'
+            })
             .when('/SubCategory', {
 
                     templateUrl: 'App/Admin/views/SubCategoryView.html',

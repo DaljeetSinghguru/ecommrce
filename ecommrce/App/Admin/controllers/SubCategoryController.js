@@ -82,16 +82,17 @@
             pageable: true,
             selectable: "row",
             columns: [
-                { field: "SrNo", title: "#", width: "50px" },
-                { field: "SubCategoryName", title: "Name", width: "150px" },
+                { field: "RowId", title: "#", width: "50px" },
+                { field: "Category", title: "Category Name", width: "150px" },
+                { field: "SubCategoryName", title: "Sub Category Name", width: "150px" },
                 { field: "Active", title: "Active", width: "150px" },
-                { field: "SequenceNo", title: "Sequence", width: "150px" }
+                
             ]
         };
 
         //Save/Update Data Into Grid 
         $scope.SaveSubCategory = function () {
-
+            debugger
             var chkValFields = 0;
             if ($scope.SubCategory.SubCategoryDescription1 == "" || $scope.SubCategory.SubCategoryDescription1 == undefined) {
                 $scope.SubCategoryDescription1 = true;
@@ -106,8 +107,9 @@
                 $scope.SubCategory.SubCategoryDescription = $scope.SubCategory.SubCategoryDescription1;
                 $scope.SubCategory.SequenceNo = $scope.SubCategory.SequenceNo1;
                 $scope.SubCategory.Active = $scope.SubCategory.Active1;
-                if ($scope.SubCategory.Category) { $scope.SubCategory.SubCategoryId = $scope.SubCategory.Category.Id; }
-                SubCategoryMasterService.SubCategory_Insert($scope.SubCategory).success(function (data, status, headers, config) {
+                if ($scope.SubCategory.Category) { $scope.SubCategory.Category = $scope.SubCategory.Category.Id; }
+
+                SubCategoryMasterService.InsertSubCategory($scope.SubCategory).success(function (data, status, headers, config) {
                     $scope.SubCategoryDescription1 = false;
 
                     $scope.OutputData = JSON.parse(data);

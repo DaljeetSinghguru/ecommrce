@@ -8,24 +8,25 @@
 
         $scope.GOTODestinationPage = function () {
             debugger
+            window.location.replace('app_v10.html#/LandingPageVisa');
             $scope.Userlogin = {};
             $scope.Userlogin.Name = $scope.sName;
             $scope.Userlogin.Password = $scope.sUserPassword;
-            $http({ method: 'POST', url: $scope.Url + 'Login/checkLogin/', data: $scope.Userlogin }).
-                success(function (data, status, headers, config) {
-                    debugger
-                    if (data == "login successfully") {
-                        window.location.replace('app_v10.html#/LandingPageVisa');
-                    }
-                    else {
-                        alert("User Name and password is incorrect");
-                    }
+            //$http({ method: 'POST', url: $scope.Url + 'Login/checkLogin/', data: $scope.Userlogin }).
+            //    success(function (data, status, headers, config) {
+            //        debugger
+            //        if (data == "login successfully") {
+            //            window.location.replace('app_v10.html#/LandingPageVisa');
+            //        }
+            //        else {
+            //            alert("User Name and password is incorrect");
+            //        }
                     
 
 
-                }).
-                error(function (data, status, headers, config) {
-                });
+            //    }).
+            //    error(function (data, status, headers, config) {
+            //    });
         }
         $scope.cancel = function () {
             //

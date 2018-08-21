@@ -14,4 +14,5 @@
     this.GetCategoryGridData = function () {
         return $http({ method: 'POST', url: this.baseURl + 'Category/Category_Find?Active=True' });
     }
+
 }])

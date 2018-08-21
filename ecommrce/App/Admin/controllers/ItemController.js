@@ -1,5 +1,5 @@
-﻿app.controller('ItemController', ['$scope', '$http', '$location', 'ItemService','brandService',
-    function ($scope, $http, $location, ItemService,brandService) {
+﻿app.controller('ItemController', ['$scope', '$http', '$location', 'ItemService', 'brandService', 'SubCategoryService','CategoryMasterService',
+    function ($scope, $http, $location, ItemService, brandService, SubCategoryService, CategoryMasterService) {
         debugger
 
        
@@ -13,7 +13,7 @@
                     $scope.brandList = [];
                     $scope.branddata = JSON.parse(results);
                     for (var i = 0; i < $scope.branddata.length; i++) {
-                        $scope.brandList.push({ "Name": $scope.branddata[i].BrandName, "Id": $scope.branddata[i].Id });//    
+                        $scope.brandList.push({ "Name": $scope.branddata[i].BrandName, "Id": $scope.branddata[i].BrandId });//    
                     }
                 }
                 else {  }
@@ -37,14 +37,14 @@
 
         $scope.SubCategoryList = [];
 
-        $scope.BindSubCategory = function () {
+        $scope.BindSubCategory = function (ID) {
             $scope.SubCategorydata = [];
-            SubCategoryService.getData().success(function (results) {
+            SubCategoryService.getSubCategoryData(ID).success(function (results) {
                 if (results != "") {
                     $scope.SubCategoryList = [];
                     $scope.SubCategorydata = JSON.parse(results);
                     for (var i = 0; i < $scope.SubCategorydata.length; i++) {
-                        $scope.SubCategoryList.push({ "Name": $scope.SubCategorydata[i].SubCategoryName, "Id": $scope.SubCategorydata[i].Id });//    
+                        $scope.SubCategoryList.push({ "Name": $scope.SubCategorydata[i].SubCategoryName, "Id": $scope.SubCategorydata[i].SubCategoryId });//    
                     }
                 }
                 else {  }
@@ -53,7 +53,7 @@
             });
         }
 
-        $scope.BindSubCategory();
+       
 
         $scope.SubCategoryOptions = {
             change: function (e) {
@@ -69,12 +69,13 @@
 
         $scope.BindCategory = function () {
             $scope.Categorydata = [];
-            CategoryService.getData().success(function (results) {
+            CategoryMasterService.GetCategory().success(function (results) {
                 if (results != "") {
+                    debugger
                     $scope.CategoryList = [];
-                    $scope.Categorydata = JSON.parse(results);
+                    $scope.Categorydata = results;
                     for (var i = 0; i < $scope.Categorydata.length; i++) {
-                        $scope.CategoryList.push({ "Name": $scope.Categorydata[i].CategoryName, "Id": $scope.Categorydata[i].Id });//    
+                        $scope.CategoryList.push({ "Name": $scope.Categorydata[i].CategoryName, "Id": $scope.Categorydata[i].CategoryId });//    
                     }
                 }
                 else {  }
@@ -87,6 +88,7 @@
 
         $scope.CategoryOptions = {
             change: function (e) {
+                $scope.BindSubCategory(e.sender._old);
             },
             select: function () {
             }
@@ -114,7 +116,7 @@
         $scope.imagemainUpload1 = function (event) {
             $scope.PlsUploadOfferLetter1 = false;
             var files1 = event.target.files; //FileList object
-            $scope.FileOfferletterUpload1 = event.target.files1;
+            $scope.FileOfferletterUpload1 = event.target.files;
             for (var i = 0; i < files1.length; i++) {
                 var file1 = files1[i];
                 var reader = new FileReader();
@@ -122,7 +124,7 @@
                 reader.readAsDataURL(file1);
             }
 
-            $scope.FileNameUpload1 = files[0].name;
+            $scope.FileNameUpload1 = files1[0].name;
             $scope.$apply();
             
         }
@@ -132,7 +134,7 @@
         $scope.imagemainUpload2 = function (event) {
             $scope.PlsUploadOfferLetter2 = false;
             var files2 = event.target.files; //FileList object
-            $scope.FileOfferletterUpload2 = event.target.files2;
+            $scope.FileOfferletterUpload2 = event.target.files;
             for (var i = 0; i < files2.length; i++) {
                 var file2 = files2[i];
                 var reader = new FileReader();
@@ -154,7 +156,14 @@
            // $scope.Item;
           //  $scope.FileOfferletterUpload 
             
-            ItemService.InsertItemData($scope.FileOfferletterUpload, $scope.Item.Name).success(function (data, status, headers, config) {
+            ItemService.InsertItemData($scope.FileOfferletterUpload,
+                $scope.FileOfferletterUpload1,
+                $scope.FileOfferletterUpload2,
+                $scope.Item.Name,
+                $scope.Item.Category.Id,
+                $scope.Item.Brand.Id,
+                $scope.Item.SubCategory.Id, $scope.Item.Description, $scope.Item.ItemStockCode, $scope.Item.Price, $scope.Item.Title
+            ).success(function (data, status, headers, config) {
                 if (data.length > 0) {
                   //  toaster.pop('success', "Success", "Offer letter is successfully uploaded");
                 }
@@ -163,13 +172,15 @@
         ///////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////BIND GRID DATA///////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////
-        $scope.GridOptions = {
+        $scope.GridOptionsItem = {
             dataSource: {
                 transport: {
                     read: function (e) {
-                        ItemService.getData().success(function (data, status, headers, config) {
+                        debugger
+                        ItemService.GetItemGridData().success(function (data, status, headers, config) {
                             if (status == "200") {
                                 if (data != "") {
+                                    debugger
                                     e.success(JSON.parse(data));
                                     $scope.OpenFilterPopup = false;
                                 }
@@ -187,10 +198,16 @@
             sortable: true,
             pageable: true,
             columns: [
-                { field: "SNo", title: "#", width: "40px", },
-                { field: "ItemName", title: "Name", width: "150px",},
-                { field: "Filename", title: "File Name", width: "150px", },
-                { field: "ImageUrl", title: "Image Url", width: "100px" }
+                { field: "ItemId", title: "ItemId", width: "40px", },
+                { field: "Name", title: "Item Name", width: "150px",},
+                { field: "Title", title: "Title", width: "150px", },
+                { field: "BrandName", title: "Brand", width: "100px" } ,
+                { field: "CategoryName", title: "Category", width: "100px" } ,
+                { field: "SubCategoryName", title: "SubCategoryName", width: "100px" } ,
+                { field: "Price", title: "Price", width: "100px" },
+                { field: "ItemStockCode", title: "ItemStockCode", width: "100px" },
+                { field: "Description", title: "Description", width: "100px" }
+
             ]
         };
 

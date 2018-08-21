@@ -1,9 +1,8 @@
-﻿app.service('brandService', ['$http', 'ViewVariablesService', function ($http, ViewVariablesService) {
+﻿app.service('brandService', ['$http',  function ($http) {
 
     
 
-    this.baseURl = ViewVariablesService.GetBaseAddress();
-
+    this.baseURl = "http://localhost:50675/api/";
  
 
     this.InsertBrandData = function (image,BrandName ) {
