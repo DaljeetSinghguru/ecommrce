@@ -369,19 +369,7 @@
                                                 });
 
                                         }
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                        
 
                                         //save transaction into Database and accounts 
 
