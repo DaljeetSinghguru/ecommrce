@@ -33,7 +33,7 @@
                 transport: {
                     read: function (e) {
                         debugger
-                        CategoryMasterService.GetCategory().success(function (data, status, headers, config) {
+                        CategoryMasterService.GetCategoryGridData().success(function (data, status, headers, config) {
                             debugger
                             if (data != "") {
                                 //$scope.data = JSON.parse(data);
@@ -52,7 +52,7 @@
             pageable: true,
             selectable: "row",
             columns: [
-                { field: "SrNo", title: "#", width: "50px" },
+                { field: "RowId", title: "#", width: "50px" },
                 { field: "CategoryName", title: "Name", width: "150px" },
                 { field: "Active", title: "Active", width: "150px" },
                 { field: "SequenceNo", title: "Sequence", width: "150px" }
@@ -73,10 +73,11 @@
             //}
 
             if (chkValFields == 0) {
-                $scope.Category.CategoryDescription = $scope.Category.CategoryDescription1;
+                $scope.Category.CategoryName = $scope.Category.CategoryDescription1;
                 $scope.Category.SequenceNo = $scope.Category.SequenceNo1;
                 $scope.Category.Active = $scope.Category.Active1;
-                if ($scope.Category.CategoryId) { $scope.Category.CategoryId = $scope.Category.CategoryId; }
+               
+
                 CategoryMasterService.InsertCategory($scope.Category).success(function (data, status, headers, config) {
                     $scope.CategoryDescription1 = false;
 
@@ -105,7 +106,7 @@
         //Fill Data into Controll while click on Grid for Update
         $scope.onChangeCategoryGrid = function (selected, data, dataIteam, angularDataItem) {
             $scope.CategoryDescription1 = false;
-            $scope.Category.CategoryDescription1 = data.CategoryDescription;
+            $scope.Category.CategoryDescription1 = data.CategoryName;
             $scope.Category.SequenceNo1 = data.SequenceNo;
             $scope.Category.Active1 = data.Active;
             $scope.Category.CategoryId = data.CategoryId;

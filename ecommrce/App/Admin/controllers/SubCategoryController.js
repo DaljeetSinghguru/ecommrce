@@ -106,8 +106,8 @@
                 $scope.SubCategory.SubCategoryDescription = $scope.SubCategory.SubCategoryDescription1;
                 $scope.SubCategory.SequenceNo = $scope.SubCategory.SequenceNo1;
                 $scope.SubCategory.Active = $scope.SubCategory.Active1;
-                if ($scope.SubCategory.SubCategoryId) { $scope.SubCategory.SubCategoryId = $scope.SubCategory.SubCategoryId; }
-                SubCategoryMasterService.InsertSubCategory($scope.SubCategory).success(function (data, status, headers, config) {
+                if ($scope.SubCategory.Category) { $scope.SubCategory.SubCategoryId = $scope.SubCategory.Category.Id; }
+                SubCategoryMasterService.SubCategory_Insert($scope.SubCategory).success(function (data, status, headers, config) {
                     $scope.SubCategoryDescription1 = false;
 
                     $scope.OutputData = JSON.parse(data);

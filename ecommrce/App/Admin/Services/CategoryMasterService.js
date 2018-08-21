@@ -2,14 +2,16 @@
 
 
 
-    this.baseURl = "http://localhost:50433/api/";
+    this.baseURl = "http://localhost:50675/api/";
 
 
     this.GetCategory = function () {
-        return $http({ method: 'GET', url: this.baseURl + 'CategoryMaster' });
+        return $http({ method: 'POST', url: this.baseURl + 'Category/Category_Find?Active=True' });
     }
-    this.InsertRegion = function (Object) {
-        return $http({ method: 'POST', url: this.baseURl + 'Region/InsertUpdateRegion', data: Object });
+    this.InsertCategory = function (Object) {
+        return $http({ method: 'POST', url: this.baseURl + 'Category/Category_Insert', data: Object });
     }
-
+    this.GetCategoryGridData = function () {
+        return $http({ method: 'POST', url: this.baseURl + 'Category/Category_Find?Active=True' });
+    }
 }])

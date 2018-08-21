@@ -1,7 +1,7 @@
 ﻿app.controller('ShopmainController', ['$scope', '$window', '$location', '$modal', '$rootScope', '$http', 
             function ($scope, $window, $location, $modal,  $rootScope, $http) {
         // $scope.Url = "http://www.touchstoneesol.com/testslimapi/api/";
-        $scope.Url = "http://localhost:50433/api/";
+        $scope.Url = "http://localhost:50675/api/";
 
         $scope.options = [{ Id: "1", Country: "America", Currency: "Dollars", Code: "USD", Symbol: "$" },
         { Id: "2", Country: "Australia", Currency: "Dollars", Code: "AUD", Symbol: "$" },
@@ -54,7 +54,7 @@
         }
         ///Get data for top 8 item show on home page
         $http({
-            method: 'GET', url: $scope.Url + 'ShopPortalListing'
+            method: 'GET', url: $scope.Url + 'ShopPortalListing/get'
         }).
             success(function (data, status, headers, config) {
                 $scope.top8response = data;
@@ -65,7 +65,7 @@
 
         ///Get data for top 8 item show on home page
         $http({
-            method: 'GET', url: $scope.Url + 'Menu'
+            method: 'GET', url: $scope.Url + 'Menu/get'
         }).
             success(function (data, status, headers, config) {
 
@@ -432,7 +432,7 @@
             $scope.modalInstanceExtention = $modal.open({
                 scope: $scope,
                 templateUrl: 'App/views/LoginView.html',
-                //controller: 'AddExtentionController',
+              controller: 'CheckLoginController',
             });
 
 
@@ -585,5 +585,31 @@
                 }).
                 error(function (data, status, headers, config) {
                 });
-        }
+                }
+
+
+
+
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+                $scope.GOTODestinationPage = function () {
+                    debugger
+                    $scope.Userlogin = {};
+                    $scope.Userlogin.Name = $scope.sName;
+                    $scope.Userlogin.Password = $scope.sUserPassword;
+                    $http({ method: 'POST', url: $scope.Url + 'Login/checkLogin/', data: $scope.Userlogin }).
+                        success(function (data, status, headers, config) {
+                            $scope.Token = data;
+
+
+                        }).
+                        error(function (data, status, headers, config) {
+                        });
+                }
     }]);
