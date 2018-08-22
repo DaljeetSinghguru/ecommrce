@@ -26,9 +26,9 @@
             //  $scope.FileOfferletterUpload 
 
             brandService.InsertBrandData($scope.FileOfferletterUpload, $scope.Brand.Name).success(function (data, status, headers, config) {
-                if (data.length > 0) {
-                    //  toaster.pop('success', "Success", "Offer letter is successfully uploaded");
-                }
+                   $scope.RefreshBrandGrid();
+                        $scope.Brand = {};
+                        $scope.FileNameUpload="";
             })
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -130,24 +130,9 @@
                 if ($scope.Brand.BrandId) { $scope.Brand.BrandId = $scope.Brand.BrandId; }
                 brandService.InsertBrand($scope.Brand).success(function (data, status, headers, config) {
                     $scope.BrandDescription1 = false;
-
-                    $scope.OutputData = JSON.parse(data);
-                    if ($scope.OutputData == "1") {
                         $scope.RefreshBrandGrid();
                         $scope.Brand = {};
-                      //  toaster.pop('success', "Success", "Record Inserted Successfully");
-                        //alert('Record Insert.')
-                    }
-                    if ($scope.OutputData == "2") {
-                        $scope.RefreshBrandGrid();
-                        $scope.Brand = {};
-                      //  toaster.pop('success', "Success", "Record Updated Successfully");
-                        //alert('Record Update.')
-                    }
-                    if ($scope.OutputData == "0") {
-                       // toaster.pop('Exist', "Exist", "Record already Exists");
-                        //alert('Record already Exists.')
-                    }
+                  
 
 
                 });
@@ -157,14 +142,14 @@
         $scope.onChangeBrandGrid = function (selected, data, dataIteam, angularDataItem) {
             $scope.BrandDescription1 = false;
             $scope.Brand.BrandDescription1 = data.BrandDescription;
-            $scope.Brand.SequenceNo1 = data.SequenceNo;
-            $scope.Brand.Active1 = data.Active;
+           // $scope.Brand.SequenceNo1 = data.SequenceNo;
+           // $scope.Brand.Active1 = data.Active;
             $scope.Brand.BrandId = data.BrandId;
             $scope.btntextBrand = "Update";
         }
         ///REFRESH GRID 
         $scope.RefreshBrandGrid = function () {
-            $scope.BrandGridRebind = new kendo.data.DataSource({
+            $scope.screenResolution1 = new kendo.data.DataSource({
                 transport: {
                     read: {
                         function(e) {

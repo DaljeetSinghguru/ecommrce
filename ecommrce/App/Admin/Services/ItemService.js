@@ -11,7 +11,7 @@
         Name,
         CategoryId,
         BrandId,
-        SubCategoryId, Description, ItemStockCode, Price, Title ) {
+        SubCategoryId, Description, ItemStockCode, Price, Title, Stockinhand ) {
         var dataAsFormData = new FormData();
         dataAsFormData.append("Image", FileOfferletterUpload[0]);
         dataAsFormData.append("Image1", FileOfferletterUpload1[0]);
@@ -24,6 +24,7 @@
         dataAsFormData.append("ItemStockCode", ItemStockCode);
         dataAsFormData.append("Price", Price);
         dataAsFormData.append("Title", Title);
+        dataAsFormData.append("Stockinhand", Stockinhand);
         return $http({
             url: this.baseURl + 'Item/InsertItemData',
             method: "POST",

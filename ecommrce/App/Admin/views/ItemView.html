@@ -94,21 +94,22 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="sec">
-                    <p><strong>Description</strong></p>
-                    <div class="input-sec">
-                        <input type="text" placeholder="Description" class="form-control" ng-model="Item.Description">
-                        <small>Description</small>
-                    </div>
-                </div>
-            </div>
+
             <div class="col-md-3">
                 <div class="sec">
                     <p><strong>Price</strong></p>
                     <div class="input-sec">
                         <input type="text" placeholder="Price" class="form-control" ng-model="Item.Price">
                         <small>Price</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="sec">
+                    <p><strong>Stock In Hand</strong></p>
+                    <div class="input-sec">
+                        <input type="text" placeholder="Stock in Hand" class="form-control" ng-model="Item.Stockinhand">
+                        <small>Stock in hand</small>
                     </div>
                 </div>
             </div>
@@ -163,6 +164,18 @@
                             <span ng-show="OLV_ShowFileNameUploadData==true" style="color:red">Please Upload Item Image.</span>
                         </div>
                         <!-- <span ng-show="PlsUploadOfferLetter==true" style="color:red">Please Upload Offer Letter.</span>-->
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-12">
+                <div class="sec">
+                    <p><strong>Description</strong></p>
+                    <div class="input-sec">
+                        <textarea type="text" placeholder="Description" class="form-control" ng-model="Item.Description"></textarea>
+                        <small>Description</small>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 ﻿app.controller('SubCategoryController', ['$scope', '$http', 'SubCategoryMasterService','CategoryMasterService', '$anchorScroll',
     function ($scope, $http, SubCategoryMasterService, CategoryMasterService,$anchorScroll) {
-        debugger
+        
         $anchorScroll();
         $('input').keypress(function (event) {
             if (event.keyCode == 13) {
@@ -31,6 +31,7 @@
         $scope.CategoryOptions = {
             change: function (e) {
                 $scope.PermanentCategoryId = e.sender._old;
+            $scope.SubCategoryCategory = false;
             },
             select: function () {
             }
@@ -85,7 +86,7 @@
                 { field: "RowId", title: "#", width: "50px" },
                 { field: "Category", title: "Category Name", width: "150px" },
                 { field: "SubCategoryName", title: "Sub Category Name", width: "150px" },
-                { field: "Active", title: "Active", width: "150px" },
+               // { field: "Active", title: "Active", width: "150px" },
                 
             ]
         };
@@ -98,49 +99,50 @@
                 $scope.SubCategoryDescription1 = true;
                 chkValFields = 1;
             }
-
+                 if ($scope.SubCategory.Category == "" || $scope.SubCategory.Category == undefined) {
+                $scope.SubCategoryCategory = true;
+                chkValFields = 1;
+            }
             //if (chkValFields == 1) {
             //    toaster.pop('warning', "warning", "Please re-check the input data and fill correctly");
             //}
 
             if (chkValFields == 0) {
                 $scope.SubCategory.SubCategoryDescription = $scope.SubCategory.SubCategoryDescription1;
-                $scope.SubCategory.SequenceNo = $scope.SubCategory.SequenceNo1;
-                $scope.SubCategory.Active = $scope.SubCategory.Active1;
+              //  $scope.SubCategory.SequenceNo = $scope.SubCategory.SequenceNo1;
+              //  $scope.SubCategory.Active = $scope.SubCategory.Active1;
                 if ($scope.SubCategory.Category) { $scope.SubCategory.Category = $scope.SubCategory.Category.Id; }
 
+
+            if( $scope.btntextSubCategory == "Save"){
                 SubCategoryMasterService.InsertSubCategory($scope.SubCategory).success(function (data, status, headers, config) {
                     $scope.SubCategoryDescription1 = false;
-
-                    $scope.OutputData = JSON.parse(data);
-                    if ($scope.OutputData == "1") {
                         $scope.RefreshSubCategoryGrid();
                         $scope.SubCategory = {};
-                        //  toaster.pop('success', "Success", "Record Inserted Successfully");
-                        //alert('Record Insert.')
-                    }
-                    if ($scope.OutputData == "2") {
+                 
+                });}
+            if($scope.btntextSubCategory == "Update"){
+           SubCategoryMasterService.UpdateSubCategory($scope.SubCategory).success(function (data, status, headers, config) {
+                    $scope.SubCategoryDescription1 = false;
                         $scope.RefreshSubCategoryGrid();
                         $scope.SubCategory = {};
-                        //  toaster.pop('success', "Success", "Record Updated Successfully");
-                        //alert('Record Update.')
-                    }
-                    if ($scope.OutputData == "0") {
-                        // toaster.pop('Exist', "Exist", "Record already Exists");
-                        //alert('Record already Exists.')
-                    }
-
-
+ $scope.btntextSubCategory = "Save";
+                 
                 });
+}
             }
         }
         //Fill Data into Controll while click on Grid for Update
         $scope.onChangeSubCategoryGrid = function (selected, data, dataIteam, angularDataItem) {
+debugger
+
             $scope.SubCategoryDescription1 = false;
-            $scope.SubCategory.SubCategoryDescription1 = data.SubCategoryDescription;
-            $scope.SubCategory.SequenceNo1 = data.SequenceNo;
-            $scope.SubCategory.Active1 = data.Active;
+            $scope.SubCategory.SubCategoryDescription1 = data.SubCategoryName;
+            //$scope.SubCategory.SequenceNo1 = data.SequenceNo;
+           // $scope.SubCategory.Active1 = data.Active;
             $scope.SubCategory.SubCategoryId = data.SubCategoryId;
+          $scope.SubCategory.CategoryId = data.CategoryId;
+            $scope.SubCategory.Category = { "Name":data.Category, "Id": data.CategoryId };
             $scope.btntextSubCategory = "Update";
         }
         ///REFRESH GRID 

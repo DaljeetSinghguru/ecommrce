@@ -54,8 +54,8 @@
             columns: [
                 { field: "RowId", title: "#", width: "50px" },
                 { field: "CategoryName", title: "Name", width: "150px" },
-                { field: "Active", title: "Active", width: "150px" },
-                { field: "SequenceNo", title: "Sequence", width: "150px" }
+               // { field: "Active", title: "Active", width: "150px" },
+               // { field: "SequenceNo", title: "Sequence", width: "150px" }
             ]
         };
 
@@ -74,41 +74,34 @@
 
             if (chkValFields == 0) {
                 $scope.Category.CategoryName = $scope.Category.CategoryDescription1;
-                $scope.Category.SequenceNo = $scope.Category.SequenceNo1;
-                $scope.Category.Active = $scope.Category.Active1;
+                //$scope.Category.SequenceNo = $scope.Category.SequenceNo1;
+                //$scope.Category.Active = $scope.Category.Active1;
                
-
+if( $scope.btntextCategory=="Save")
+{
                 CategoryMasterService.InsertCategory($scope.Category).success(function (data, status, headers, config) {
                     $scope.CategoryDescription1 = false;
-
-                    $scope.OutputData = JSON.parse(data);
-                    if ($scope.OutputData == "1") {
                         $scope.RefreshCategoryGrid();
                         $scope.Category = {};
-                      //  toaster.pop('success', "Success", "Record Inserted Successfully");
-                        //alert('Record Insert.')
-                    }
-                    if ($scope.OutputData == "2") {
-                        $scope.RefreshCategoryGrid();
-                        $scope.Category = {};
-                      //  toaster.pop('success', "Success", "Record Updated Successfully");
-                        //alert('Record Update.')
-                    }
-                    if ($scope.OutputData == "0") {
-                       // toaster.pop('Exist', "Exist", "Record already Exists");
-                        //alert('Record already Exists.')
-                    }
-
-
                 });
             }
-        }
+ }  
+
+if( $scope.btntextCategory=="Update"){
+      CategoryMasterService.UpdateCategory($scope.Category).success(function (data, status, headers, config) {
+                    $scope.CategoryDescription1 = false;
+                        $scope.RefreshCategoryGrid();
+                        $scope.Category = {};
+$scope.btntextCategory="Save"
+                });
+}
+   }
         //Fill Data into Controll while click on Grid for Update
         $scope.onChangeCategoryGrid = function (selected, data, dataIteam, angularDataItem) {
             $scope.CategoryDescription1 = false;
             $scope.Category.CategoryDescription1 = data.CategoryName;
-            $scope.Category.SequenceNo1 = data.SequenceNo;
-            $scope.Category.Active1 = data.Active;
+            //$scope.Category.SequenceNo1 = data.SequenceNo;
+            //$scope.Category.Active1 = data.Active;
             $scope.Category.CategoryId = data.CategoryId;
             $scope.btntextCategory = "Update";
         }

@@ -162,7 +162,7 @@
                 $scope.Item.Name,
                 $scope.Item.Category.Id,
                 $scope.Item.Brand.Id,
-                $scope.Item.SubCategory.Id, $scope.Item.Description, $scope.Item.ItemStockCode, $scope.Item.Price, $scope.Item.Title
+                $scope.Item.SubCategory.Id, $scope.Item.Description, $scope.Item.ItemStockCode, $scope.Item.Price, $scope.Item.Title, $scope.Item.Stockinhand
             ).success(function (data, status, headers, config) {
                 if (data.length > 0) {
                   //  toaster.pop('success', "Success", "Offer letter is successfully uploaded");
