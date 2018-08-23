@@ -617,5 +617,6 @@
 
                 $scope.login = function () {
                     debugger
+                    window.location.replace('app_v10.html#/LandingPageVisa');
                 }
     }]);
