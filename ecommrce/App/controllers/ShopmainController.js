@@ -432,7 +432,8 @@
             $scope.modalInstanceExtention = $modal.open({
                 scope: $scope,
                 templateUrl: 'App/views/LoginView.html',
-              controller: 'CheckLoginController',
+                controller: 'CheckLoginController',
+                size: "lg",
             });
 
 
@@ -611,5 +612,10 @@
                         }).
                         error(function (data, status, headers, config) {
                         });
+        }
+
+
+                $scope.login = function () {
+                    debugger
                 }
     }]);
