@@ -1,0 +1,688 @@
+﻿<div id="wrap" class="animsition" style="animation-duration: 1.5s; opacity: 1;">
+    <div class="" ng-controller="ShopmainController">
+        <div class="top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-right">
+                        <a href="" ng-click="DisplayLoginPage()" ng-show="UserIsLogIn==false">Login</a>
+                        <a href="" ng-show="UserIsLogIn==true">Welcome {{UserName}}</a>
+                        <a href="" ng-click="LogOutPage()" ng-show="UserIsLogIn==true">(Logout)</a> | <a href="#">Create An Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="navbar  navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="#">
+                            <div class="logo">
+                                <img style="width:150px;height:100px " src="../../ItemImage/uk_tool_centre_logo.jpg" alt="uk_tool logo">
+                            </div>
+                        </a>
+                        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="container">
+                            <div class="header_top">
+                                <div class="header_top_left">
+                                    <div class="box_11" ng-click="ShowCart()" ng-show="getTotalCount() > 0">
+                                        <i class="icon-shopping-cart" />
+                                        <b>{{getTotalCount()}}</b> items, <b>{{getTotalPrice() | currency}}</b>
+                                        <span ng-show="getTotalCount() > 0">
+                                            <br />
+                                            this item is in the cart
+                                        </span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="header_top_right">
+                                    <div class="lang_list">
+                                    </div>
+
+                                    <!-- start search-->
+                                    <div class="search-box">
+                                        <div id="sb-search" class="sb-search">
+                                            <form>
+                                                <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+                                                <!--<input class="sb-search-submit" type="submit" value="">-->
+                                                <span class="sb-icon-search"></span>
+                                                <span><i class="phone">9988225604</i></span>|
+                                                <span><i class="">Mon - Fri 7:30 Am - 6:00 Pm</i></span>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <!----search-scripts---->
+                                    <script src="Scripts/classie1.js"></script>
+                                    <script src="Scripts/uisearch.js"></script>
+                                    <script>
+                                        new UISearch(document.getElementById('sb-search'));
+                                    </script>
+                                    <!----//search-scripts---->
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active"><a class="nav-link" href="" ng-click="OpenHomePage()">Home <span class="sr-only">(current)</span></a> </li>
+                                <li class="nav-item"><a class="nav-link" href="" ng-click="OpenDetailPage()">Shop Hear</a> </li>
+                                <li class="nav-item"><a class="nav-link" href="#">Contact Us</a> </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="dropdown" ng-repeat="data in AllCategory">
+            <button class="dropbtn">{{data.Description}}</button>
+            <div class="dropdown-content">
+                <a href="#" ng-repeat="data1 in data.ChildFields">{{data1.Description}}</a>
+                <!--<a href="#">Link 2</a>
+                <a href="#">Link 3</a>-->
+            </div>
+        </div>
+
+        <!-- header end here -->
+        <div class="HomePage" ng-show="HomePage==true">
+
+
+            <!--<div class="banner"></div>-->
+            <div class="container section">
+                <div class="row">
+                    <div class="col-lg-3 filter">
+                        <!--<h5>Main Whole Sale Items</h5>-->
+                        <ul>
+                            <li ng-repeat="data in AllCategory"><a href="" ng-click="applyFilterByCourse('IELTS')">{{data.Description}} </a> </li>
+                            <!--<li><a href="" ng-click="applyFilterByCourse('PTE')">Power Tool Cordless</a></li>
+                            <li><a href="" ng-click="applyFilterByCourse('SPOKEN ENGLISH')">Power Tool Accessories</a></li>
+                            <li><a href="" ng-click="applyFilterByCourse('TOEFL')">Hand Tool</a></li>
+                            <li><a href="" ng-click="applyFilterByCourse('LIFE SKILLS')">Intelligent Tools</a></li>
+                            <li><a href="" ng-click="applyFilterByCourse('LIFE SKILLS')">Tools Storage </a></li>-->
+                        </ul>
+                        <!--<h5>Product Type</h5>
+                        <ul>
+                            <li><a href="" ng-click="applyFilterItemType('Digital')">Digital</a></li>
+                            <li><a href="" ng-click="applyFilterItemType('Physical')">Physical</a></li>
+                        </ul>-->
+                    </div>
+                    <div class="col-lg-9 product">
+                        <div class="row">
+                            
+                            <div class="col-lg-3" ng-repeat="data in top8response">
+                                <!--<img src="{{data.ItemImage}}" ng-click="function(data)" alt="{{data.ItemImage}}">-->
+                                
+                                <img src="../../ItemImage/page2_img1.jpg" />
+                                <h5>{{data.Name}}</h5>
+                                <h4>{{data.Price}} <del>{{data.Price}}</del></h4>
+                                <h6><a href="" ng-click="addItemToCart(data.Description, data.Name,data.ItemImage ,data.Price, 1,data.IsStockPresent,data.ItemType,data.ItemId)">Add to cart</a></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="benifit">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <img src="../../ItemImage/icon.jpg" alt="icon" class="float-left">
+                            <strong>Free shipping item</strong><br>
+                            For all orders over $500
+                        </div>
+                        <div class="col-lg-4">
+                            <img src="../../ItemImage/icon1.jpg" alt="icon" class="float-left">
+                            <strong>Money back guarante</strong><br>
+                            100% money back guarante
+                        </div>
+                        <div class="col-lg-4">
+                            <img src="../../ItemImage/icon2.jpg" alt="icon" class="float-left">
+                            <strong>Cash on delivery</strong><br>
+                            Lorem Ipsum simple
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container section">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="box">
+                            <div class="book1">
+                                <img src="../../ItemImage/book1.png" alt="book1">
+                            </div>
+                            <h2>Summer WorkWear </h2>
+                            <p>
+                                Stay Cool On Job SHOP NOW!!!!!!
+                            </p>
+                            <a href="#">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box">
+                            <div class="book1">
+                                <img src="../../ItemImage/book1.png" alt="book1">
+                            </div>
+                            <h2>Summer WorkWear </h2>
+                            <p>
+                                Stay Cool On Job SHOP NOW!!!!!!
+                            </p>
+                            <a href="#">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box">
+                            <div class="book1">
+                                <img src="../../ItemImage/book1.png" alt="book1">
+                            </div>
+                            <h2>Summer WorkWear </h2>
+                            <p>
+                                Stay Cool On Job SHOP NOW!!!!!!
+                            </p>
+                            <a href="#">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box" style="background: #313131">
+                            <div class="book1">
+                                <img src="../../ItemImage/book2.png" alt="book1">
+                            </div>
+                            <h2>Gardening Power Tools</h2>
+                            <p>
+                                Keep the Garden Looking Great All year Round! SHOP Now!!!!!
+                            </p>
+                            <a href="#" style="background: #cd152f;">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="container text-center">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img src="../../ItemImage/shop-now.jpg" class="img-fluid" alt="shop now banner">
+                    </div>
+                </div>
+            </div>-->
+            <!--<div class="container section">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="news">
+                            <h4>Sign Up for Send Newsletter</h4>
+                            <p>You can be always up to date with our company new!</p>
+                            <input type="text" class="form-control" placeholder="Signup Newsletter">
+                            <a href="#">Sign Up</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 product">
+                        <h1>HOT SALE!</h1>
+                        <div class="clearfix"></div>
+                        <div class="row">
+                            <div class="col-lg-3" ng-repeat="data in top8response">
+                                <img src="{{data.ItemImage}}" ng-click="function(data)" alt="{{data.ItemImage}}">
+                                <h5>{{data.Name}}</h5>
+                                <h4>{{data.Price}} <del>{{data.Price}}</del></h4>
+                                <h6><a href="" ng-click="addItemToCart(data.Description, data.Name,data.ItemImage ,data.Price, 1,data.IsStockPresent,data.ItemType,data.ItemId)">Add to cart</a></h6>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+        <div class="IndexPage" ng-show="IndexPage==true">
+
+            <div class="container section">
+                <div class="row">
+                    <div class="col-lg-3 filter">
+                        <h5>Course</h5>
+                        <ul>
+                            <li><a href="" ng-click="applyFilterByCourse('IELTS')">IELTS </a> </li>
+                            <li><a href="" ng-click="applyFilterByCourse('PTE')">PTE</a></li>
+                            <li><a href="" ng-click="applyFilterByCourse('SPOKEN ENGLISH')">SPOKEN ENGLISH</a></li>
+                            <li><a href="" ng-click="applyFilterByCourse('TOEFL')">TOEFL </a></li>
+                            <li><a href="" ng-click="applyFilterByCourse('LIFE SKILLS')">LIFE SKILLS </a></li>
+                        </ul>
+                        <!--<h5>Product Type</h5>
+                        <ul>
+                            <li><a href="" ng-click="applyFilterItemType('Digital')">Digital</a></li>
+                            <li><a href="" ng-click="applyFilterItemType('Physical')">Physical</a></li>
+                        </ul>-->
+                        <div class="news">
+                            <h4>Sign Up for Send Newsletter</h4>
+                            <p>You can be always up to date with our company new!</p>
+                            <input type="text" class="form-control" placeholder="Signup Newsletter">
+                            <a href="#">Sign Up</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 product">
+                        <div class="row">
+                            <div class="col-lg-3" ng-repeat="data in response">
+                                <img src="{{data.ItemImage}}" ng-click="function(data)" alt="{{data.ItemImage}}">
+                                <h5>{{data.ItemName}}</h5>
+                                <h4>{{CountrySymbol}} {{data.Price}}<del>{{data.Price}}</del></h4>
+                                <h6><a href="" ng-click="addItemToCart(data.ItemDescription, data.ItemName,data.ItemImage ,data.Price, 1,data.IsStockPresent,data.ItemType,data.ItemId)">Add to cart</a></h6>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="DetailPage" ng-show="DetailPage==true">
+            <div class="banner-inner">
+                <div class="container">6 Practice Test for the IELTS</div>
+            </div>
+            <div class="container section">
+                <div class="row">
+                    <div class="cart-added">&#9989; 6 Practice Test for the IELTS Sucessfully Added in cart <a href="" ng-click="ContinueToBasket()">Continue Shopping</a> </div>
+                </div>
+            </div>
+            <div class="container section">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="book-detail">
+                            <div class="sale">Sale!</div>
+                            <img src="{{detailpageData.ItemImage}}" class="img-fluid" alt="books details">
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="book-discription">
+                            <h2>{{detailpageData.ItemName}}</h2>
+                            <h3>{{detailpageData.Price}}<del>{{detailpageData.Price}}</del> </h3>
+                            <hr>
+                            <p>{{detailpageData.ItemDescription}} This comprehensive British Council resource is suitable for home study or for use in class. The book and CD-Rom contain a range of practical exercises to prepare you in the four skills, and an answer key and transcript of CD-Rom recordings. Available from British Council test centres and selected book stores worldwide.</p>
+                            <div style="margin-bottom: 20px; float: left;">
+                                <input type="number" class="form-control" min="1" style="width: 70px; float: left;">
+                                <a href="" ng-click="addItemToCart(detailpageData.ItemDescription, detailpageData.ItemName,detailpageData.ItemImage ,detailpageData.Price, 1,detailpageData.IsStockPresent,detailpageData.ItemType,detailpageData.ItemId)">Add to Cart</a>
+                            </div>
+                            <p>
+                                <span>Category:</span> Ielts Books
+                                <br>
+                                <span>Tags:</span> Study for IELTS, VISA, Canada Study, Study Abroad
+                            </p>
+                            <ul>
+                                <li>
+                                    <img src="../../ItemImage/facebook.jpg" alt="facebook">
+                                </li>
+                                <li>
+                                    <img src="../../ItemImage/twitter.jpg" alt="twitter">
+                                </li>
+                                <li>
+                                    <img src="../../ItemImage/googleplus.jpg" alt="googleplus">
+                                </li>
+                                <li>
+                                    <img src="../../ItemImage/whatsapp.jpg" alt="whatsapp">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container section tabs-cus">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#home">Discription</a></li>
+                            <li><a data-toggle="tab" href="#menu1">Reviews (0)</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="home" class="tab-pane in active">
+                                <h3>Discription</h3>
+                                <p>This comprehensive British Council resource is suitable for home study or for use in class. The book and CD-Rom contain a range of practical exercises to prepare you in the four skills, and an answer key and transcript of CD-Rom recordings. Available from British Council test centres and selected book stores worldwide. This comprehensive British Council resource is suitable for home study or for use in class. The book and CD-Rom contain a range of practical exercises to prepare you in the four skills, and an </p>
+                            </div>
+                            <div id="menu1" class="tab-pane fade">
+                                <h3>No rating</h3>
+                                <p>No review right now!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container section product">
+                <h5 class="text-left">Related Books</h5>
+                <div class="row">
+                    <div class="col-lg-2">
+                        <img src="../../ItemImage/img2.jpg" alt="book1">
+                        <h5>ielts tips</h5>
+                        <h4>$34.00 <del>$36.00</del></h4>
+                        <h6><a href="#">Add to cart</a></h6>
+                    </div>
+                    <div class="col-lg-2">
+                        <img src="../../ItemImage/img3.jpg" alt="book1">
+                        <h5>ielts tips</h5>
+                        <h4>$34.00 <del>$36.00</del></h4>
+                        <h6><a href="#">Add to cart</a></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="CheckOutpage" ng-show="CheckOutpage==true">
+            <div class="account-in">
+                <div class="container">
+                    <div class="check_box">
+                        <div class="col-md-9 cart-items">
+                            <h1>Shopping Bag</h1>
+                            <!--<%--
+                            <script>
+                                $(document).ready(function (c) {
+                                    $('.close1').on('click', function (c) {
+                                        $('.cart-header').fadeOut('slow', function (c) {
+                                            $('.cart-header').remove();
+                                        });
+                                    });
+                                });
+                            </script>--%>-->
+                            <div class="cart-header" ng-repeat="item in items | orderBy:'name'">
+                                <div class="close1" ng-click="deleteRowFromBasket(item)"></div>
+                                <div class="cart-sec">
+                                    <div class="cart-item cyc">
+                                        <img src="{{item.ItemImage}}" class="img-responsive" alt="" />
+                                    </div>
+                                    <div class="cart-item-info">
+                                        <!-- <%-- <h3><a href="#">Mountain Hopper(XS R034)</a><span>Model No: 3578</span></h3>--%>-->
+                                        <h3>{{item.name}}</h3>
+                                        <ul class="qty">
+                                            <li>
+                                                <p>Price : {{item.price}}</p>
+                                            </li>
+                                            <li>
+                                                <p>Qty :{{item.quantity}}</p>
+                                            </li>
+                                        </ul>
+                                        <div class="delivery">
+                                            <p>Service Charges : Rs.100.00</p>
+                                            <span>Delivered in 2-3 business days</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <!--<%--
+                            <script>
+                                $(document).ready(function (c) {
+                                    $('.close2').on('click', function (c) {
+                                        $('.cart-header2').fadeOut('slow', function (c) {
+                                            $('.cart-header2').remove();
+                                        });
+                                    });
+                                });
+                            </script>--%>-->
+                        </div>
+                        <div class="col-md-3 cart-total">
+                            <a class="continue" href="" ng-click="ContinueToBasket()">Continue to basket</a>
+                            <div class="price-details">
+                                <h3>Price Details</h3>
+                                <span>Total</span>
+                                <span class="total1">{{getTotalPrice()}}</span>
+                                <span>Discount</span>
+                                <span class="total1">---</span>
+                                <span>Delivery Charges</span>
+                                <span class="total1">---</span>
+                                <div class="clearfix"></div>
+                            </div>
+                            <ul class="total_price">
+                                <li class="last_price">
+                                    <h4>TOTAL</h4>
+                                </li>
+                                <li class="last_price"><span>{{getTotalPrice()}}</span></li>
+                                <div class="clearfix"></div>
+                            </ul>
+                            <div class="clearfix"></div>
+                            <div class="bt-drop-in-wrapper">
+                                <div id="dropin-container"></div>
+                            </div>
+                            <a id="submit-button" class="order" href="" ng-click="Order()">Place Order</a>
+                            <!--<%--  <div class="total-item">
+                                <h3>OPTIONS</h3>
+                                <h4>COUPONS</h4>
+                                <a class="cpns" href="#">Apply Coupons</a>
+                                <p><a href="#">Log In</a> to use accounts - linked coupons</p>
+                            </div>--%>-->
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="LoginPage" ng-show="Loginpage==true">
+            <div class="banner-inner"> <div class="container">LOGIN OR CREATE AN ACCOUNT</div></div>
+            <div style="background: #eee;">
+                <div class="container section login">
+                    <div class="row" style="background: #fff; padding: 100px; box-shadow: 0 0 5px #ccc; border: 1px solid #ccc;">
+                        <div class="col-lg-6 form">
+                            <h4>New to Touchstone Educationals?</h4>
+                            <p>Registration is free and easy!</p>
+                            <ul>
+                                <li>&#9989; Faster checkout</li>
+                                <li>&#9989; Save multiple shipping addresses</li>
+                                <li>&#9989; View and track orders and more</li>
+                            </ul>
+                            <!--   <%--   <input type="submit" ng-click="DisplayRegistrationPage() value="Create Account" class="form-control">--%>-->
+                            <a href="" ng-click="DisplayRegistrationPage()" class="create">Create an account</a>
+                        </div>
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-5 form">
+                            <form name="LoginForm" ng-submit="LoginFormSubmit()">
+                                <h4>Already registered?</h4>
+                                <p>If you have an account with us, please log in.</p>
+                                <label>Your Email Address:</label>
+                                <input type="text" value="" class="form-control" name="Email" ng-model="Email" placeholder="Email" required>
+                                <span style="color: red" ng-show="(Form.Email.$dirty || submitted) && Form.Email.$invalid">
+                                    <span ng-show="Form.Email.$error.required">Email is required.</span>
+                                </span>
+                                <label>Password:</label>
+                                <input type="password" value="" class="form-control" name="Email" ng-model="Password" placeholder="Password" required>
+                                <span style="color: red" ng-show="(Form.Password.$dirty || submitted) && Form.Password.$invalid">
+                                    <span ng-show="Form.Password.$error.required">Password is required.</span>
+                                </span>
+                                <a href="#">Forget password?</a>
+                                <label>&nbsp;</label>
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="RegistrationPage" ng-show="RegistrationPage==true">
+            <div class="account-in">
+                <div class="container">
+                    <form name="Form" ng-submit="Submit()">
+                        <div class="">
+                            <h2>PERSONAL INFORMATION</h2>
+
+                            <div class="form-group">
+                                <label for="inputFirstName" class="control-label col-md-3  text-right">First Name <span class="requiredspan" title="Required">*</span> :</label>
+                                <div class="col-md-3">
+                                    <input type="text" value="" class="form-control" name="FirstName" ng-model="FirstName" placeholder="First Name" required>
+                                    <span style="color: red" ng-show="(Form.FirstName.$dirty || submitted) && Form.FirstName.$invalid">
+                                        <span ng-show="Form.FirstName.$error.required">First Name is required.</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputLastName" class="control-label col-md-3  text-right">Last Name <span class="requiredspan" title="Required">*</span> :</label>
+                                <div class="col-md-3">
+                                    <input type="text" value="" class="form-control" name="LastName" ng-model="LastName" placeholder="Last Name" required>
+                                    <span style="color: red" ng-show="(Form.LastName.$dirty || submitted) && Form.LastName.$invalid">
+                                        <span ng-show="Form.LastName.$error.required">Last Name is required.</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputContactNumber" class="control-label col-md-3  text-right">Contact Number<span class="requiredspan" title="Required">*</span> :</label>
+                                <div class="col-md-3">
+                                    <input type="text" value="" class="form-control" name="ContactNumber" ng-model="ContactNumber" placeholder="Contact Number" required>
+                                    <span style="color: red" ng-show="(Form.ContactNumber.$dirty || submitted) && Form.ContactNumber.$invalid">
+                                        <span ng-show="Form.ContactNumber.$error.required">Contact Number is required.</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputDOB" class="control-label col-md-3  text-right">Date Of Birth<span class="requiredspan" title="Required">*</span> :</label>
+                                <div class="col-md-3">
+                                    <input type="text" value="" class="form-control" name="DateOfBirth" ng-model="DateOfBirth" placeholder="DateOf Birth" required>
+                                    <span style="color: red" ng-show="(Form.DateOfBirth.$dirty || submitted) && Form.DateOfBirth.$invalid">
+                                        <span ng-show="Form.DateOfBirth.$error.required">DateOfBirth is required.</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputBillingAddress" class="control-label col-md-3  text-right">Billing Address<span class="requiredspan" title="Required">*</span> :</label>
+                                <div class="col-md-3">
+                                    <input type="text" value="" class="form-control" name="BillingAddress" ng-model="BillingAddress" placeholder="BillingAddress" required>
+                                    <span style="color: red" ng-show="(Form.BillingAddress.$dirty || submitted) && Form.BillingAddress.$invalid">
+                                        <span ng-show="Form.BillingAddress.$error.required">BillingAddress is required.</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputShippingAddress" class="control-label col-md-3  text-right">Shipping Address<span class="requiredspan" title="Required">*</span> :</label>
+                                <div class="col-md-3">
+                                    <input type="text" value="" class="form-control" name="ShippingAddress" ng-model="ShippingAddress" placeholder="ShippingAddress" required>
+                                    <span style="color: red" ng-show="(Form.ShippingAddress.$dirty || submitted) && Form.ShippingAddress.$invalid">
+                                        <span ng-show="Form.ShippingAddress.$error.required">ShippingAddress is required.</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPIN" class="control-label col-md-3  text-right">PIN Code<span class="requiredspan" title="Required">*</span> :</label>
+                                <div class="col-md-3">
+                                    <input type="text" value="" class="form-control" name="PINCode" ng-model="PINCode" placeholder="PINCode" required>
+                                    <span style="color: red" ng-show="(Form.PINCode.$dirty || submitted) && Form.PINCode.$invalid">
+                                        <span ng-show="Form.PINCode.$error.required">PINCode is required.</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmailAddress" class="control-label col-md-3  text-right">Email Address<span class="requiredspan" title="Required">*</span> :</label>
+                                <div class="col-md-3">
+                                    <input type="text" value="" class="form-control" name="EmailAddress" ng-model="EmailAddress" placeholder="EmailAddress" required>
+                                    <span style="color: red" ng-show="(Form.EmailAddress.$dirty || submitted) && Form.EmailAddress.$invalid">
+                                        <span ng-show="Form.EmailAddress.$error.required">EmailAddress is required.</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword" class="control-label col-md-3  text-right">Password <span class="requiredspan" title="Required">*</span> :</label>
+                                <div class="col-md-3">
+                                    <input type="password" value="" class="form-control" name="Password" ng-model="Password" placeholder="Password" required>
+                                    <span style="color: red" ng-show="(Form.Password.$dirty || submitted) && Form.Password.$invalid">
+                                        <span ng-show="Form.Password.$error.required">Password is required.</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputConfirmPassword" class="control-label col-md-3  text-right">Confirm Password <span class="requiredspan" title="Required">*</span> :</label>
+                                <div class="col-md-3">
+                                    <input type="password" value="" class="form-control" name="ConfirmPassword" ng-model="ConfirmPassword" placeholder="ConfirmPassword" required>
+                                    <span style="color: red" ng-show="(Form.ConfirmPassword.$dirty || submitted) && Form.ConfirmPassword.$invalid">
+                                        <span ng-show="Form.ConfirmPassword.$error.required">ConfirmPassword is required.</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="register-but">
+                            <!--<%-- <input type="submit" value="submit">--%>-->
+                            <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                            <div class="clearfix"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="ThankYouPage" ng-show="ThankYouPage==true">
+            <div class="men">
+                <div class="container">
+                    <div class="grid_1">
+                        <h1>Thanks For order</h1>
+                        <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum</p>
+                    </div>
+                    <div class="grid_4">
+                        <div class="grid_2 preffix_1">
+                            <ul class="iphone">
+                                <i class="phone"></i>
+                                <li class="phone_desc"></li>
+                                <div class="clearfix"></div>
+                            </ul>
+                            <ul class="iphone">
+                                <i class="flag"></i>
+                                <li class="phone_desc">Website : <a href="mailto:mail@demolink.org">www.touchstoneedu.com</a></li>
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+                        <!--<%--<div class="grid_3">
+                            <ul class="iphone">
+                                <i class="msg"> </i>
+                                <li class="phone_desc">Email : <a href="mailto:mail@demolink.org">mail(at)watches.com</a> </li>
+                                <div class="clearfix"> </div>
+                            </ul>
+                            <ul class="iphone">
+                                <i class="home"> </i>
+                                <li class="phone_desc">Address : vel illum dolore eu feugiat nulla </li>
+                                <div class="clearfix"> </div>
+                            </ul>
+                        </div>--%>-->
+                        <div class="clearfix"></div>
+                    </div>
+                    <!--<%--	 <div class="contact_form">
+                        <h2>Feedback</h2>
+                        <form>
+                            <div class="col-md-6 to">
+                                <input type="text" class="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
+                                <input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+                                <input type="text" class="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
+                            </div>
+                            <div class="col-md-6 text">
+                                <textarea value="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="but__center"><input type="submit" value="Send message &gt;&gt;"></div>
+                        </form>
+                    </div>--%>-->
+                </div>
+            </div>
+        </div>
+        <!-- footer start here -->
+        <footer>
+            <div class="container fot-menu"><a href="#">Home</a> |<a href="#">Shop Portal</a> | <a href="#">Contact</a> </div>
+            <div class="container  border-top-bot">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <h6>MY ACCOUNT</h6>
+                        <a href="#">MY Address</a> <a href="#">Gift Vouchers</a> <a href="#">Returns and Exchanges</a> <a href="#">Shipping Options</a> <a href="#">My personal info</a>
+                    </div>
+                    <div class="col-lg-3">
+                        <h6>INFORMATION</h6>
+                        <a href="#">About us</a> <a href="#">Blog</a> <a href="#">Terms of Use</a> <a href="#">Privacy Policy</a> <a href="#">Site Map</a>
+                    </div>
+                    <div class="col-lg-3">
+                        <h6>CUSTOM</h6>
+                        <a href="#">Product Recall</a> <a href="#">Gift Vouchers</a> <a href="#">Returns and Exchanges</a> <a href="#">Shipping Options</a> <a href="#">Help & FAQ</a>
+                    </div>
+                    <div class="col-lg-3">
+                        <h6>STORE INFORMATION</h6>
+                        <strong>Touchstone Educationals Store</strong> SCO 181-182, First floor Sec, 17-C
+                        Chandigarh 160017<br>
+                        <br>
+                        <strong>Call us now:</strong> (+91) 172-5000060 <strong>Email:</strong>info@touchstoneesol.com
+                    </div>
+                </div>
+            </div>
+            <div class="container copyright">
+                All rights are reserved by Touchstone Educationals Pvt Ltd.<br>
+                <span>Website Design & Developed by <a href="http://www.toonztowon.com">www.toonztowon.com</a></span>
+            </div>
+        </footer>
+        <!-- footer end here -->
+
+    </div>
+</div>

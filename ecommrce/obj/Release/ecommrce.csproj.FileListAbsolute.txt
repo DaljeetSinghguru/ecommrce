@@ -1,0 +1,10 @@
+E:\dsg\ecommrce\ecommrce\bin\ecommrce.dll.config
+E:\dsg\ecommrce\ecommrce\bin\ecommrce.dll
+E:\dsg\ecommrce\ecommrce\bin\ecommrce.pdb
+E:\dsg\ecommrce\ecommrce\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\dsg\ecommrce\ecommrce\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\dsg\ecommrce\ecommrce\obj\Release\ecommrce.csprojResolveAssemblyReference.cache
+E:\dsg\ecommrce\ecommrce\obj\Release\ecommrce.csproj.CoreCompileInputs.cache
+E:\dsg\ecommrce\ecommrce\obj\Release\ecommrce.csproj.CopyComplete
+E:\dsg\ecommrce\ecommrce\obj\Release\ecommrce.dll
+E:\dsg\ecommrce\ecommrce\obj\Release\ecommrce.pdb
